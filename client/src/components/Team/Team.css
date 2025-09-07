@@ -1,0 +1,178 @@
+/* General page container */
+.team-page-content {
+    padding-top: 80px;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Main heading style */
+.main-team-heading {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #ff4400,
+        0 0 30px #00aaff;
+    letter-spacing: 5px;
+    animation: teamGlow 2.5s ease-in-out infinite alternate;
+}
+
+/* Keyframe for a dual-tone fire and ice glow */
+@keyframes teamGlow {
+    from {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #ff7700,
+            0 0 15px #00aaff,
+            0 0 20px #ff4400;
+    }
+
+    to {
+        text-shadow:
+            0 0 8px #fff,
+            0 0 15px #00aaff,
+            0 0 25px #ff7700,
+            0 0 35px #00aaff;
+    }
+}
+
+/* Grid container for the cards */
+.team-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem 4rem;
+    max-width: 1400px;
+}
+
+/* Styling for each member card */
+.team-card {
+    background: linear-gradient(145deg, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.8));
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+}
+
+/* More impressive hover effect */
+.team-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(255, 130, 0, 0.5),
+        0 0 30px rgba(0, 130, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Image container with a defined aspect ratio */
+.card-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    background: #111;
+}
+
+.member-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+    /* Removed the filter so images are colorful by default */
+}
+
+/* More impressive hover image effect */
+.team-card:hover .member-image {
+    transform: scale(1.1);
+    /* No filter change is needed here since the initial state is already colorful */
+    border-bottom: 2px solid #fff;
+}
+
+/* Card details section */
+.card-details {
+    padding: 1.5rem 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card-post {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #c0f8ff;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(192, 248, 255, 0.6);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
+}
+
+.card-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.card-regno {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* More impressive hover text effects */
+.team-card:hover .card-post {
+    color: #ffaa00;
+    text-shadow: 0 0 15px rgba(255, 170, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .main-team-heading {
+        font-size: 3.5rem;
+    }
+
+    .team-cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .main-team-heading {
+        font-size: 2.5rem;
+    }
+
+    .team-cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card-post {
+        font-size: 1rem;
+    }
+
+    .card-name {
+        font-size: 1.2rem;
+    }
+}

@@ -19,37 +19,29 @@
     font-weight: 900;
     text-transform: uppercase;
     margin-bottom: 3rem;
-    color: #c0f8ff;
-    /* Light, icy blue text color */
-    /* Reduced text-shadow for a softer glow */
-    text-shadow:
-        0 0 5px rgba(192, 248, 255, 0.5),
-        /* Soft blue glow */
-        0 0 10px rgba(100, 200, 255, 0.3),
-        /* Deeper blue glow */
-        0 0 15px rgba(0, 150, 255, 0.2);
-    /* Darker blue glow */
+    color: #ffffff;
+    /* Changed to white */
     letter-spacing: 5px;
-    animation: icyGlow 2.5s ease-in-out infinite alternate;
-    /* New icy glow animation */
+    animation: teamGlow 2.5s ease-in-out infinite alternate;
+    /* Using the dual-tone animation */
 }
 
-/* Keyframe animation for a more subtle icy glow */
-@keyframes icyGlow {
+/* Keyframe for a dual-tone fire and ice glow */
+@keyframes teamGlow {
     from {
         text-shadow:
-            0 0 3px #fff,
-            0 0 6px #c0f8ff,
-            0 0 9px #64c8ff,
-            0 0 12px #00aaff;
+            0 0 5px #fff,
+            0 0 10px #ff7700,
+            0 0 15px #00aaff,
+            0 0 20px #ff4400;
     }
 
     to {
         text-shadow:
-            0 0 5px #fff,
-            0 0 10px #c0f8ff,
-            0 0 15px #64c8ff,
-            0 0 20px #00aaff;
+            0 0 8px #fff,
+            0 0 15px #00aaff,
+            0 0 25px #ff7700,
+            0 0 35px #00aaff;
     }
 }
 

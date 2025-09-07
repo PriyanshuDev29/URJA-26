@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import './Sports.css';
 
 // Import all the sport content components
-import AthleticsRules from './Rulebook/Athletics';
-import BadmintonRules from './Rulebook/Badminton';
-import BasketballRules from './Rulebook/Basketball';
-import ChessRules from './Rulebook/Chess.js';
-import CricketRules from './Rulebook/Cricket';
-import FootballRules from './Rulebook/Football';
-import HockeyRules from './Rulebook/Hockey';
-import LawnTennisRules from './Rulebook/LawnTennis';
-import TableTennisRules from './Rulebook/TableTennis';
-import VolleyballRules from './Rulebook/Volleyball';
+import AthleticsRules from '../Rulebook/Athletics.js';
+import BadmintonRules from '../Rulebook/Badminton.js';
+import BasketballRules from '../Rulebook/Basketball.js';
+import ChessRules from '../Rulebook/Chess.js';
+import CricketRules from '../Rulebook/Cricket.js';
+import FootballRules from '../Rulebook/Football.js';
+import HockeyRules from '../Rulebook/Hockey.js';
+import LawnTennisRules from '../Rulebook/LawnTennis.js';
+import TableTennisRules from '../Rulebook/TableTennis.js';
+import VolleyballRules from '../Rulebook/Volleyball.js';
 
 function Sports() {
     const [selectedSport, setSelectedSport] = useState('Athletics');

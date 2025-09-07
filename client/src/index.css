@@ -42,3 +42,38 @@ code {
   font-weight: bold;
   letter-spacing: 0.1em;
 }
+
+/* src/index.css or src/App.css */
+
+/*
+  The common class for all glowing main headings.
+  This allows us to reuse the same style without repeating code.
+*/
+.main-glowing-heading {
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  letter-spacing: 5px;
+  /* Add the base animation here */
+  animation: headingGlow 2.5s ease-in-out infinite alternate;
+}
+
+/* Base keyframe animation for the glow effect */
+@keyframes headingGlow {
+  from {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px rgba(255, 255, 255, 0.7),
+      0 0 15px rgba(255, 68, 0, 0.3),
+      0 0 20px rgba(0, 170, 255, 0.3);
+  }
+
+  to {
+    text-shadow:
+      0 0 8px #fff,
+      0 0 15px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 68, 0, 0.5),
+      0 0 25px rgba(0, 170, 255, 0.5);
+  }
+}

@@ -19,42 +19,29 @@
     font-weight: 900;
     text-transform: uppercase;
     margin-bottom: 3rem;
-    color: #ffaa00;
-    /* Main text color for a fiery glow */
-    /* Reduced text-shadow for a softer glow */
-    text-shadow:
-        0 0 5px rgba(255, 170, 0, 0.6),
-        /* Soft yellow-orange glow */
-        0 0 10px rgba(255, 100, 0, 0.4),
-        /* Deeper orange glow */
-        0 0 15px rgba(255, 50, 0, 0.2);
-    /* Red glow */
+    color: #ffffff;
+    /* Changed to white */
     letter-spacing: 5px;
-    /* Use the updated fieryGlow animation */
-    animation: fieryGlow 2.5s ease-in-out infinite alternate;
+    animation: teamGlow 2.5s ease-in-out infinite alternate;
+    /* Using the dual-tone animation */
 }
 
-/* New keyframe animation for a more fiery glow */
-@keyframes fieryGlow {
+/* Keyframe for a dual-tone fire and ice glow */
+@keyframes teamGlow {
     from {
-        /* Reduced from and to values for a more subtle effect */
         text-shadow:
-            0 0 3px #ffcc00,
-            /* Yellow-white center */
-            0 0 6px #ff9900,
-            /* Orange glow */
-            0 0 9px #ff5500,
-            /* Red-orange glow */
-            0 0 12px #ff3300;
-        /* Deep red glow */
+            0 0 5px #fff,
+            0 0 10px #ff7700,
+            0 0 15px #00aaff,
+            0 0 20px #ff4400;
     }
 
     to {
         text-shadow:
-            0 0 5px #ffcc00,
-            0 0 10px #ffaa00,
-            0 0 15px #ff7700,
-            0 0 20px #ff4400;
+            0 0 8px #fff,
+            0 0 15px #00aaff,
+            0 0 25px #ff7700,
+            0 0 35px #00aaff;
     }
 }
 
@@ -92,14 +79,17 @@
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: #e0e0e0;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    /* Set initial text color to a soft, whitish-blue */
+    color: #b0e0ff;
+    text-shadow: 0 0 5px rgba(176, 224, 255, 0.6);
+    transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
 }
 
 .sport-emoji {
     font-size: 1.5rem;
     margin-right: 10px;
     filter: saturate(0.8) contrast(1.2);
+    transition: filter 0.4s ease-in-out;
 }
 
 /* Hover effect on labels */
@@ -111,13 +101,9 @@
 
 /* Styling for the selected radio button state */
 .sport-radio-input:checked+.sport-radio-text {
+    /* Change text color to fiery red when selected */
     color: #ffaa00;
-    /* New color for a fiery look */
     text-shadow: 0 0 15px rgba(255, 170, 0, 0.8);
-}
-
-.sport-radio-input:checked+.sport-radio-text .sport-emoji {
-    filter: none;
 }
 
 .sport-radio-input:checked~.sport-radio-label {
@@ -141,7 +127,24 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(0, 0, 0, 0.4);
     text-align: left;
     backdrop-filter: blur(2px);
+    animation: contentBoxGlow 4s ease-in-out infinite alternate;
 }
+
+/* NEW: Keyframe for a subtle, dual-tone glow on the content box */
+@keyframes contentBoxGlow {
+    from {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7),
+            inset 0 0 10px rgba(255, 100, 0, 0.2),
+            inset 0 0 10px rgba(0, 100, 255, 0.2);
+    }
+
+    to {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7),
+            inset 0 0 15px rgba(255, 100, 0, 0.3),
+            inset 0 0 15px rgba(0, 100, 255, 0.3);
+    }
+}
+
 
 .sport-rules-container {
     /* No padding here, as it's handled by .sport-content */
@@ -154,8 +157,9 @@
     color: #e0e0e0;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     border-bottom: 3px solid transparent;
-    /* Updated gradient for a fiery look */
-    border-image: linear-gradient(to right, #ff4400, #ff8800, #ffaa00);
+    /* Updated gradient for a fiery and icy look */
+    border-image: linear-gradient(to right, #ff4400, #ff8800, #00aaff);
+    /* Blending fiery and icy */
     border-image-slice: 1;
     padding-bottom: 0.75rem;
     text-transform: uppercase;
@@ -167,9 +171,10 @@
     font-weight: 700;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    color: #ff8800;
-    /* Fiery color for subheadings */
-    text-shadow: 0 0 8px rgba(255, 136, 0, 0.7);
+    /* NEW: Adjusted color for subheadings to a more neutral glowing white/light grey */
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(0, 170, 255, 0.3);
+    /* Subtle blue glow */
 }
 
 .sport-rules-container p,
@@ -188,7 +193,8 @@
 
 .sport-rules-container li {
     position: relative;
-    padding-left: 20px;
+    padding-left: 25px;
+    /* Increased padding for larger dots */
 }
 
 .sport-rules-container li::before {
@@ -197,13 +203,33 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    /* Larger dot */
+    height: 10px;
+    /* Larger dot */
     border-radius: 50%;
-    /* Fiery glow dot */
-    background: #ff5500;
-    box-shadow: 0 0 5px #ff5500, 0 0 10px #ff5500;
+    /* NEW: Dynamic dot color (alternating fire/ice) */
+    background: linear-gradient(45deg, #ff4400, #00aaff);
+    /* Fire and ice gradient for dots */
+    box-shadow: 0 0 5px rgba(255, 68, 0, 0.8), 0 0 10px rgba(0, 170, 255, 0.8);
+    /* Dual glow */
+    animation: dotPulse 2s ease-in-out infinite alternate;
+    /* New pulse animation for dots */
 }
+
+/* NEW: Keyframe for pulsing dots */
+@keyframes dotPulse {
+    from {
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 5px rgba(255, 68, 0, 0.6), 0 0 10px rgba(0, 170, 255, 0.6);
+    }
+
+    to {
+        transform: translateY(-50%) scale(1.2);
+        box-shadow: 0 0 8px rgba(255, 68, 0, 1), 0 0 15px rgba(0, 170, 255, 1);
+    }
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 992px) {

@@ -1,0 +1,130 @@
+/* Update the .navbar class */
+.navbar {
+    width: 100%;
+    /* This will now distribute the logo and the ul element across the full width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right,
+            rgba(255, 60, 0, 0.15) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 207, 255, 0.15) 100%);
+    padding: 0.8rem 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right,
+            #ff3c00 0%,
+            transparent 50%,
+            #00cfff 100%);
+    border-image-slice: 1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Style for the logo image */
+.navbar-logo {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
+    filter:
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 8px rgba(255, 60, 0, 0.7)) drop-shadow(0 0 8px rgba(0, 207, 255, 0.7)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
+}
+
+/* This is the key change */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    /* This will distribute the links with equal space between them, pushing them across the entire navbar space */
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    /* Pushes the links away from the logo, but space-around handles the rest */
+    flex-grow: 1;
+}
+
+/* All other .navbar a and :hover styles remain the same */
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', 'Segoe UI', 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
+    transition:
+        color 0.3s,
+        background 0.3s,
+        box-shadow 0.3s,
+        transform 0.3s;
+    text-shadow:
+        0 0 10px #ff3c00,
+        0 0 15px #00cfff;
+    box-shadow: 0 0 15px 0 rgba(255, 60, 0, 0.2), 0 0 15px 0 rgba(0, 207, 255, 0.2);
+}
+
+/* Hover effects for each link */
+.home-link:hover,
+.team-link:hover,
+.sports-link:hover,
+.pool-link:hover,
+.points-table-link:hover {
+    background: transparent;
+    color: #fff;
+    transform: translateY(-3px);
+    text-shadow: 0 0 16px #fff, 0 2px 8px #222;
+}
+
+/* Specific button glow effects on hover */
+.home-link:hover {
+    box-shadow: 0 0 24px 0 #ff3c00;
+}
+
+.team-link:hover {
+    box-shadow: 0 0 24px 0 rgba(255, 255, 255, 0.8);
+}
+
+.sports-link:hover {
+    box-shadow: 0 0 24px 0 #ff3c00;
+}
+
+.pool-link:hover {
+    box-shadow: 0 0 24px 0 #00cfff;
+}
+
+.points-table-link:hover {
+    box-shadow: 0 0 24px 0 rgba(255, 130, 0, 0.5), 0 0 24px 0 rgba(0, 130, 255, 0.5);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar ul {
+        justify-content: flex-end;
+        gap: 10px;
+        margin-left: auto;
+    }
+
+    .navbar a {
+        font-size: 1.2rem;
+        padding: 0.4rem 1rem;
+        letter-spacing: 0.05em;
+    }
+
+    .navbar-logo {
+        height: 50px;
+    }
+}
