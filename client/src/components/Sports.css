@@ -1,0 +1,233 @@
+/* General page container, similar to the Pool page */
+.sports-page-content {
+    /* Reduced padding-top to bring content closer to the navbar */
+    padding-top: 80px;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    min-height: calc(100vh - 80px);
+    /* Adjust min-height to match padding-top */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Main "Sports" heading - Enhanced for a fiery look */
+.main-sports-heading {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    color: #ffaa00;
+    /* Main text color for a fiery glow */
+    /* Reduced text-shadow for a softer glow */
+    text-shadow:
+        0 0 5px rgba(255, 170, 0, 0.6),
+        /* Soft yellow-orange glow */
+        0 0 10px rgba(255, 100, 0, 0.4),
+        /* Deeper orange glow */
+        0 0 15px rgba(255, 50, 0, 0.2);
+    /* Red glow */
+    letter-spacing: 5px;
+    /* Use the updated fieryGlow animation */
+    animation: fieryGlow 2.5s ease-in-out infinite alternate;
+}
+
+/* New keyframe animation for a more fiery glow */
+@keyframes fieryGlow {
+    from {
+        /* Reduced from and to values for a more subtle effect */
+        text-shadow:
+            0 0 3px #ffcc00,
+            /* Yellow-white center */
+            0 0 6px #ff9900,
+            /* Orange glow */
+            0 0 9px #ff5500,
+            /* Red-orange glow */
+            0 0 12px #ff3300;
+        /* Deep red glow */
+    }
+
+    to {
+        text-shadow:
+            0 0 5px #ffcc00,
+            0 0 10px #ffaa00,
+            0 0 15px #ff7700,
+            0 0 20px #ff4400;
+    }
+}
+
+/* Container for the radio buttons */
+.sports-radio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3rem;
+}
+
+/* Style for each radio button label */
+.sport-radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 25px;
+    background-color: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Hidden radio input */
+.sport-radio-input {
+    display: none;
+}
+
+/* Styling for the text and emoji */
+.sport-radio-text {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+.sport-emoji {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    filter: saturate(0.8) contrast(1.2);
+}
+
+/* Hover effect on labels */
+.sport-radio-label:hover {
+    background-color: rgba(40, 40, 40, 0.85);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Styling for the selected radio button state */
+.sport-radio-input:checked+.sport-radio-text {
+    color: #ffaa00;
+    /* New color for a fiery look */
+    text-shadow: 0 0 15px rgba(255, 170, 0, 0.8);
+}
+
+.sport-radio-input:checked+.sport-radio-text .sport-emoji {
+    filter: none;
+}
+
+.sport-radio-input:checked~.sport-radio-label {
+    /* Gradient for selected background - updated to a fiery theme */
+    background: linear-gradient(90deg, #5f281c, #ff6600);
+    border-color: #ff8800;
+    /* Fiery border highlight */
+    transform: translateY(0);
+}
+
+/* --- Content Container and Rules --- */
+
+.sport-content {
+    margin-top: 2rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.8));
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1200px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    backdrop-filter: blur(2px);
+}
+
+.sport-rules-container {
+    /* No padding here, as it's handled by .sport-content */
+}
+
+.sport-rules-container h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    border-bottom: 3px solid transparent;
+    /* Updated gradient for a fiery look */
+    border-image: linear-gradient(to right, #ff4400, #ff8800, #ffaa00);
+    border-image-slice: 1;
+    padding-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sport-rules-container h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ff8800;
+    /* Fiery color for subheadings */
+    text-shadow: 0 0 8px rgba(255, 136, 0, 0.7);
+}
+
+.sport-rules-container p,
+.sport-rules-container li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #c0c0c0;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.sport-rules-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sport-rules-container li {
+    position: relative;
+    padding-left: 20px;
+}
+
+.sport-rules-container li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    /* Fiery glow dot */
+    background: #ff5500;
+    box-shadow: 0 0 5px #ff5500, 0 0 10px #ff5500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .sports-radio-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .sport-radio-label {
+        width: 90%;
+        justify-content: center;
+    }
+
+    .main-sports-heading {
+        font-size: 3rem;
+    }
+
+    .sport-rules-container h2 {
+        font-size: 2rem;
+    }
+
+    .sport-rules-container h3 {
+        font-size: 1.4rem;
+    }
+}

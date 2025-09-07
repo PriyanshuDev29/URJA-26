@@ -1,0 +1,203 @@
+/* General page container */
+.pool-page-content {
+    /* Adjusted padding-top to create less space between the heading and the navbar */
+    padding-top: 80px;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    min-height: calc(100vh - 80px);
+    /* Adjusted min-height to match padding-top */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Main "Pool" heading - Icy blue theme, with reduced glow */
+.main-pool-heading {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    color: #c0f8ff;
+    /* Light, icy blue text color */
+    /* Reduced text-shadow for a softer glow */
+    text-shadow:
+        0 0 5px rgba(192, 248, 255, 0.5),
+        /* Soft blue glow */
+        0 0 10px rgba(100, 200, 255, 0.3),
+        /* Deeper blue glow */
+        0 0 15px rgba(0, 150, 255, 0.2);
+    /* Darker blue glow */
+    letter-spacing: 5px;
+    animation: icyGlow 2.5s ease-in-out infinite alternate;
+    /* New icy glow animation */
+}
+
+/* Keyframe animation for a more subtle icy glow */
+@keyframes icyGlow {
+    from {
+        text-shadow:
+            0 0 3px #fff,
+            0 0 6px #c0f8ff,
+            0 0 9px #64c8ff,
+            0 0 12px #00aaff;
+    }
+
+    to {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #c0f8ff,
+            0 0 15px #64c8ff,
+            0 0 20px #00aaff;
+    }
+}
+
+
+/* Container for the two sections (Boys & Girls tables) */
+.pool-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 2rem 4rem 2rem;
+    width: 90%;
+    max-width: 1400px;
+}
+
+/* Individual section for Boys or Girls */
+.pool-section {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(2px);
+}
+
+.pool-section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), inset 0 0 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 170, 255, 0.4);
+}
+
+
+/* Heading for "Boys" or "Girls" tables */
+.pool-section h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: #e0e0e0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: 2rem;
+    background: none;
+}
+
+/* Table header cells */
+th {
+    background: linear-gradient(45deg, #0a1c2e, #1a3a5c);
+    /* Dark blue gradient for headers */
+    color: #f0f0f0;
+    font-weight: 700;
+    padding: 1.2rem 1rem;
+    border: none;
+    border-bottom: 3px solid #00aaff;
+    /* Highlight with a blue border bottom */
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 8px 8px 0 0;
+}
+
+/* First and last header specific rounding */
+th:first-child {
+    border-top-left-radius: 8px;
+}
+
+th:last-child {
+    border-top-right-radius: 8px;
+}
+
+
+/* Table data cells */
+td {
+    background: rgba(40, 40, 40, 0.8);
+    color: #d0d0d0;
+    padding: 1rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 1rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Hover effect for table rows */
+tbody tr:hover td {
+    background-color: rgba(60, 60, 60, 0.9);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+/* For rounded corners on the first and last cells of each row */
+tbody tr:first-child td:first-child {
+    border-top-left-radius: 8px;
+}
+
+tbody tr:first-child td:last-child {
+    border-top-right-radius: 8px;
+}
+
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .pool-container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem;
+    }
+
+    .pool-section {
+        width: 95%;
+        margin-bottom: 30px;
+    }
+
+    .main-pool-heading {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-pool-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .pool-section h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    th,
+    td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}

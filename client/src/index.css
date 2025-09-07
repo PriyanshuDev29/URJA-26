@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  /* Remove incorrect path, use correct one */
+  /* Use a pseudo-element for opacity */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('/public/urja-bg-1.png') no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.87;
+  /* Reduce opacity */
+  pointer-events: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.urja-title {
+  position: absolute;
+  /* Increase the top value to move the title below the navbar */
+  top: 100px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 5rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: #fff;
+  text-shadow: 0 2px 16px #000, 0 0px 2px #ff3c00, 0 0px 2px #00cfff;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
