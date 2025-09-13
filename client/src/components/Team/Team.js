@@ -12,7 +12,7 @@ const supercoreTeamData = [
     {
         post: 'Joint Sports Secretary',
         name: 'Mrinal Ayush Raj',
-        regNo: '2022UGMM052',
+        regNo: '2022UGME052',
         image: 'mrinal.jpg'
     },
     {
@@ -25,7 +25,7 @@ const supercoreTeamData = [
         post: 'Sports Team Coordinator',
         name: 'Abhishek Bhoutkar',
         regNo: '2022UGPI037',
-        image: 'abhishek_bhoutkar.jpg'
+        image: 'bhotkar.jpg'
     },
     {
         post: 'General Secretary',
@@ -65,15 +65,15 @@ const supercoreTeamData = [
     },
     {
         post: 'Executive Head',
-        name: 'Risabh Kumar',
-        regNo: '2022UGPI084',
-        image: 'risabh.jpg'
+        name: 'Rishav Kumar',
+        regNo: '2022UGCS084',
+        image: 'rishav.jpg'
     },
     {
         post: 'Executive Head',
-        name: 'Gaurav Dubey',
-        regNo: '2022UGPI046',
-        image: 'gaurav_dubey.jpg'
+        name: 'Nainish Singh',
+        regNo: '2022UGMM043',
+        image: 'nainish.jpg'
     },
     {
         post: 'Logistics Head',
@@ -156,7 +156,7 @@ const supercoreTeamData = [
     {
         post: 'App & Web Head',
         name: 'Priyanshu Dev',
-        regNo: '2022UGCE021',
+        regNo: '2022UGEC021',
         image: 'priyanshu_dev.jpg'
     },
     {
@@ -171,12 +171,6 @@ const supercoreTeamData = [
         regNo: '2022UGCS113',
         image: 'paripoorna.jpg'
     },
-    {
-        post: 'Executive Head',
-        name: 'Nainish Singh',
-        regNo: '2022UGMM043',
-        image: 'nainish.jpg'
-    }
 ];
 
 function Team() {

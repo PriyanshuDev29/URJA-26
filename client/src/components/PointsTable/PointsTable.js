@@ -8,7 +8,7 @@ const sportsDataMap = {
             'Boys': ['Pool A', 'Pool B'],
             'Girls': ['Pool A']
         },
-        stages: ['Group Stage', ' Knockout'] // Added stages
+        stages: ['Group Stage', 'Knockout'] // Added stages
     },
     'Chess': {
         genders: ['Boys', 'Girls'],
@@ -378,7 +378,7 @@ function PointsTable() {
                 {currentData ? (
                     <>
                         <h2>
-                            {selectedSport} - {formatString(selectedGender)} |
+                            {selectedSport} - {formatString(selectedGender)} |&nbsp;
                             {selectedStage === 'Group Stage' ? formatString(selectedPool) : formatString(selectedStage)}
                         </h2>
                         {selectedStage === 'Group Stage' ? (
