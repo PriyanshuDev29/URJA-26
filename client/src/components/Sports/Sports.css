@@ -1,32 +1,27 @@
 /* General page container, similar to the Pool page */
 .sports-page-content {
-    /* Reduced padding-top to bring content closer to the navbar */
     padding-top: 80px;
     color: #f0f0f0;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     min-height: calc(100vh - 80px);
-    /* Adjust min-height to match padding-top */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* Main "Sports" heading - Enhanced for a fiery look */
+/* Main "Sports" heading */
 .main-sports-heading {
     font-size: 5rem;
     font-weight: 900;
     text-transform: uppercase;
     margin-bottom: 3rem;
     color: #ffffff;
-    /* Changed to white */
     letter-spacing: 5px;
     animation: teamGlow 2.5s ease-in-out infinite alternate;
-    /* Using the dual-tone animation */
 }
 
-/* Keyframe for a dual-tone fire and ice glow */
 @keyframes teamGlow {
     from {
         text-shadow:
@@ -45,7 +40,7 @@
     }
 }
 
-/* Container for the radio buttons */
+/* Desktop and Tablet: Radio buttons */
 .sports-radio-container {
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +49,6 @@
     margin-bottom: 3rem;
 }
 
-/* Style for each radio button label */
 .sport-radio-label {
     display: flex;
     align-items: center;
@@ -67,19 +61,16 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Hidden radio input */
 .sport-radio-input {
     display: none;
 }
 
-/* Styling for the text and emoji */
 .sport-radio-text {
     display: flex;
     align-items: center;
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    /* Set initial text color to a soft, whitish-blue */
     color: #b0e0ff;
     text-shadow: 0 0 5px rgba(176, 224, 255, 0.6);
     transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
@@ -92,29 +83,93 @@
     transition: filter 0.4s ease-in-out;
 }
 
-/* Hover effect on labels */
 .sport-radio-label:hover {
     background-color: rgba(40, 40, 40, 0.85);
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Styling for the selected radio button state */
 .sport-radio-input:checked+.sport-radio-text {
-    /* Change text color to fiery red when selected */
     color: #ffaa00;
     text-shadow: 0 0 15px rgba(255, 170, 0, 0.8);
 }
 
 .sport-radio-input:checked~.sport-radio-label {
-    /* Gradient for selected background - updated to a fiery theme */
     background: linear-gradient(90deg, #5f281c, #ff6600);
     border-color: #ff8800;
-    /* Fiery border highlight */
     transform: translateY(0);
 }
 
-/* --- Content Container and Rules --- */
+/* Mobile: Custom Dropdown styling */
+.sports-dropdown-container {
+    display: none;
+    /* Hidden by default */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 3rem;
+}
+
+.selected-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.selected-option:hover {
+    border-color: #00cfff;
+}
+
+.dropdown-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 10px;
+}
+
+.dropdown-arrow.open {
+    transform: rotate(180deg);
+}
+
+.dropdown-options {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: rgba(1a, 1a, 1a, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
 .sport-content {
     margin-top: 2rem;
@@ -146,10 +201,6 @@
 }
 
 
-.sport-rules-container {
-    /* No padding here, as it's handled by .sport-content */
-}
-
 .sport-rules-container h2 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -157,13 +208,12 @@
     color: #e0e0e0;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     border-bottom: 3px solid transparent;
-    /* Updated gradient for a fiery and icy look */
     border-image: linear-gradient(to right, #ff4400, #ff8800, #00aaff);
-    /* Blending fiery and icy */
     border-image-slice: 1;
     padding-bottom: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 2rem;
 }
 
 .sport-rules-container h3 {
@@ -171,10 +221,8 @@
     font-weight: 700;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    /* NEW: Adjusted color for subheadings to a more neutral glowing white/light grey */
     color: #ffffff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(0, 170, 255, 0.3);
-    /* Subtle blue glow */
 }
 
 .sport-rules-container p,
@@ -194,7 +242,6 @@
 .sport-rules-container li {
     position: relative;
     padding-left: 25px;
-    /* Increased padding for larger dots */
 }
 
 .sport-rules-container li::before {
@@ -204,20 +251,13 @@
     top: 50%;
     transform: translateY(-50%);
     width: 10px;
-    /* Larger dot */
     height: 10px;
-    /* Larger dot */
     border-radius: 50%;
-    /* NEW: Dynamic dot color (alternating fire/ice) */
     background: linear-gradient(45deg, #ff4400, #00aaff);
-    /* Fire and ice gradient for dots */
     box-shadow: 0 0 5px rgba(255, 68, 0, 0.8), 0 0 10px rgba(0, 170, 255, 0.8);
-    /* Dual glow */
     animation: dotPulse 2s ease-in-out infinite alternate;
-    /* New pulse animation for dots */
 }
 
-/* NEW: Keyframe for pulsing dots */
 @keyframes dotPulse {
     from {
         transform: translateY(-50%) scale(1);
@@ -230,23 +270,27 @@
     }
 }
 
-
 /* Responsive adjustments */
-@media (max-width: 992px) {
-    .sports-radio-container {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .sport-radio-label {
-        width: 90%;
-        justify-content: center;
-    }
-
+@media (max-width: 768px) {
     .main-sports-heading {
         font-size: 3rem;
+    }
+
+    .sports-radio-container {
+        display: none;
+        /* Hide radio buttons on mobile */
+    }
+
+    .sports-dropdown-container {
+        display: block;
+        /* Show dropdown on mobile */
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .sport-content {
+        padding: 1.5rem;
     }
 
     .sport-rules-container h2 {
@@ -255,5 +299,33 @@
 
     .sport-rules-container h3 {
         font-size: 1.4rem;
+    }
+
+    .sport-rules-container p,
+    .sport-rules-container li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-sports-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Override for smaller screens to ensure it's still centered */
+    .sports-dropdown-container {
+        width: 90%;
+        max-width: 350px;
+        /* Keep the desired width */
+        margin: 0 auto 2rem auto;
+    }
+
+    .selected-option {
+        width: 100%;
+    }
+
+    .dropdown-options {
+        width: 100%;
     }
 }

@@ -1,7 +1,6 @@
 /* Update the .navbar class */
 .navbar {
     width: 100%;
-    /* This will now distribute the logo and the ul element across the full width */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,6 +24,25 @@
     -webkit-backdrop-filter: blur(5px);
 }
 
+/* Hamburger icon styles */
+.hamburger {
+    display: none;
+    /* Hidden by default on desktop */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    gap: 5px;
+    padding: 10px;
+    /* Add padding to make it a better click target and prevent clipping */
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
 /* Style for the logo image */
 .navbar-logo {
     height: 60px;
@@ -39,16 +57,15 @@
     transform: scale(1.05);
 }
 
-/* This is the key change */
+/* Update the .navbar ul to control link spacing */
 .navbar ul {
     list-style: none;
     display: flex;
-    /* This will distribute the links with equal space between them, pushing them across the entire navbar space */
     justify-content: space-around;
     align-items: center;
     margin: 0;
     padding: 0;
-    /* Pushes the links away from the logo, but space-around handles the rest */
+    margin-left: 5rem;
     flex-grow: 1;
 }
 
@@ -109,22 +126,56 @@
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .navbar {
+        justify-content: space-between;
         padding: 0.5rem 1rem;
     }
 
-    .navbar ul {
-        justify-content: flex-end;
-        gap: 10px;
-        margin-left: auto;
+    .hamburger {
+        display: flex;
+        /* Show hamburger icon */
+        padding: 5px;
+        /* Add some padding to prevent clipping */
+    }
+
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.9);
+        transform: translateY(-100%);
+        transition: transform 0.5s ease-in-out;
+        margin-left: 0;
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+        /* Slide in from the top */
+    }
+
+    .navbar li {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out 0.3s;
+    }
+
+    .nav-links.open li {
+        opacity: 1;
+        /* Fade in links */
     }
 
     .navbar a {
-        font-size: 1.2rem;
-        padding: 0.4rem 1rem;
-        letter-spacing: 0.05em;
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        letter-spacing: 0.1em;
     }
 
     .navbar-logo {
         height: 50px;
+        margin-bottom: 0;
     }
 }

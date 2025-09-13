@@ -98,13 +98,11 @@
     object-position: center top;
     display: block;
     transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
-    /* Removed the filter so images are colorful by default */
 }
 
 /* More impressive hover image effect */
 .team-card:hover .member-image {
     transform: scale(1.1);
-    /* No filter change is needed here since the initial state is already colorful */
     border-bottom: 2px solid #fff;
 }
 
@@ -140,6 +138,7 @@
 .card-regno {
     font-size: 0.9rem;
     color: #aaa;
+    margin-bottom: 0.5rem;
 }
 
 /* More impressive hover text effects */
@@ -148,24 +147,50 @@
     text-shadow: 0 0 15px rgba(255, 170, 0, 0.8);
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .main-team-heading {
-        font-size: 3.5rem;
-    }
-
-    .team-cards-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
+/* Styling for the phone number link */
+.card-phone-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    color: #808080;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 1px;
 }
 
-@media (max-width: 576px) {
+.card-phone-link:hover {
+    color: #00cfff;
+    text-shadow: 0 0 10px rgba(0, 207, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.card-phone-icon {
+    font-size: 1rem;
+    margin-right: 8px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-in-out;
+}
+
+.card-phone-link:hover .card-phone-icon {
+    filter: none;
+}
+
+@media (max-width: 768px) {
     .main-team-heading {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .team-cards-container {
         grid-template-columns: 1fr;
+        /* Stack cards vertically */
+        padding: 0 1rem 2rem;
+    }
+
+    .team-card {
+        width: 100%;
     }
 
     .card-post {
@@ -174,5 +199,10 @@
 
     .card-name {
         font-size: 1.2rem;
+    }
+
+    .card-regno,
+    .card-phone-link {
+        font-size: 0.9rem;
     }
 }
