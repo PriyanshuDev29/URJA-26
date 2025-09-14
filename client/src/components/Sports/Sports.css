@@ -103,7 +103,6 @@
 /* Mobile: Custom Dropdown styling */
 .sports-dropdown-container {
     display: none;
-    /* Hidden by default */
     position: relative;
     z-index: 10;
     margin-bottom: 3rem;
@@ -124,10 +123,12 @@
     font-weight: 600;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.2), 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .selected-option:hover {
     border-color: #00cfff;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 .dropdown-arrow {
@@ -147,10 +148,15 @@
     width: 100%;
     max-height: 250px;
     overflow-y: auto;
-    background: rgba(1a, 1a, 1a, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.8));
+    border: 1px solid transparent;
+    /* border-image: linear-gradient(to right, #ff4400, #ff8800, #00aaff); */
+    border-image-slice: 1;
     border-radius: 10px;
+    /* ADDED: Main border-radius for the dropdown container */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3), 0 5px 15px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -165,10 +171,21 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
     font-size: 1.1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(0, 170, 255, 0.5);
+}
+
+/* ADDED: Border-radius for the first and last dropdown items */
+.dropdown-item:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+.dropdown-item:last-child {
+    border-radius: 0 0 10px 10px;
 }
 
 .sport-content {
@@ -271,22 +288,32 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+/* Tablet styles */
+@media (min-width: 577px) and (max-width: 768px) {
     .main-sports-heading {
         font-size: 3rem;
     }
 
     .sports-radio-container {
         display: none;
-        /* Hide radio buttons on mobile */
     }
 
     .sports-dropdown-container {
         display: block;
-        /* Show dropdown on mobile */
-        width: 100%;
-        max-width: 350px;
-        margin: 0 auto 2rem auto;
+        width: 50%;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .dropdown-arrow {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    .dropdown-arrow.open {
+        transform: translateY(-50%) rotate(180deg);
     }
 
     .sport-content {
@@ -307,22 +334,34 @@
     }
 }
 
+/* Mobile styles */
 @media (max-width: 576px) {
+    /* .sports-content {
+        display: flex;
+        padding: 1.5rem;
+    } */
+
     .main-sports-heading {
         font-size: 2.5rem;
         margin-bottom: 2rem;
     }
 
-    /* Override for smaller screens to ensure it's still centered */
     .sports-dropdown-container {
+        display: flex;
         width: 90%;
-        max-width: 350px;
-        /* Keep the desired width */
-        margin: 0 auto 2rem auto;
+        margin: 0 auto;
+        position: relative;
     }
 
     .selected-option {
         width: 100%;
+    }
+
+    .dropdown-arrow {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .dropdown-options {

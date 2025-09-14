@@ -124,17 +124,20 @@
 }
 
 /* Responsive adjustments for smaller screens */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .navbar {
         justify-content: space-between;
-        padding: 0.5rem 1rem;
+        /* Increase right/left padding to give elements more room */
+        padding: 0.5rem 1.5rem;
     }
 
+    /* Hamburger icon styles for mobile */
     .hamburger {
         display: flex;
-        /* Show hamburger icon */
         padding: 5px;
-        /* Add some padding to prevent clipping */
+        margin-right: 35px;
+        /* Keep this for click target */
     }
 
     .nav-links {
@@ -156,6 +159,10 @@
     .nav-links.open {
         transform: translateY(0);
         /* Slide in from the top */
+    }
+
+    .navbar ul {
+        margin-left: 0;
     }
 
     .navbar li {
