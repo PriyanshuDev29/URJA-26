@@ -290,6 +290,11 @@
 /* Responsive adjustments */
 /* Tablet styles */
 @media (min-width: 577px) and (max-width: 768px) {
+
+    .sport-content {
+        padding: 1.5rem;
+    }
+
     .main-sports-heading {
         font-size: 3rem;
     }
@@ -340,6 +345,10 @@
         display: flex;
         padding: 1.5rem;
     } */
+
+    .sport-content {
+        padding: 1.5rem;
+    }
 
     .main-sports-heading {
         font-size: 2.5rem;

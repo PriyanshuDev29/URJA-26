@@ -4,7 +4,7 @@ export const basketballBoysPoolB = {
         data: [
             ['EE', 0, 0, 0, 0],
             ['CSE', 0, 0, 0, 0],
-            ['PIE', 0, 0, 0, 0],
+            ['PIE + ECM', 0, 0, 0, 0],
             ['CE', 0, 0, 0, 0],
         ]
     },

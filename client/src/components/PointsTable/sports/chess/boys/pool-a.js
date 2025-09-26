@@ -5,7 +5,7 @@ export const chessBoysPoolA = {
             ['ME', 0, 0, 0, 0],
             ['MME', 0, 0, 0, 0],
             ['ECE', 0, 0, 0, 0],
-            ['PG', 0, 0, 0, 0],
+            ['PG', 0, 0, 0, 0]
         ]
     },
     matches: [

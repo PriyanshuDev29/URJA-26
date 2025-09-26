@@ -70,7 +70,7 @@
 }
 
 
-/* Heading for "Boys" or "Girls" tables */
+/* Heading for "Boys" or "Girls" tables (This heading is *fixed*) */
 .pool-section h3 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -81,7 +81,7 @@
     letter-spacing: 2px;
 }
 
-/* Table container to handle horizontal scrolling on mobile */
+/* Table container to handle horizontal scrolling on mobile (only the content inside scrolls) */
 .pool-table-container {
     overflow-x: auto;
     width: 100%;
@@ -146,7 +146,7 @@ tbody tr:last-child td:last-child {
 }
 
 /* ### RESPONSIVE ADJUSTMENTS ### 
-  This section ensures the design looks great on mobile devices.
+ This section ensures the design looks great on mobile devices.
 */
 @media (max-width: 768px) {
     .main-pool-heading {

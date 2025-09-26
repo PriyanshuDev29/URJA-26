@@ -40,7 +40,7 @@
     }
 }
 
-/* Radio button container styles */
+/* Radio button container styles (for Desktop/Tablet) */
 .sports-radio-container {
     display: flex;
     flex-wrap: wrap;
@@ -100,7 +100,19 @@
     transform: translateY(0);
 }
 
-/* Corrected and enhanced custom dropdown styling */
+/* Mobile Sport Dropdown Container */
+.sports-mobile-dropdown-nav {
+    display: none;
+    /* Hidden by default (desktop) */
+    position: relative;
+    z-index: 200;
+    /* High base Z-Index for the Sport dropdown */
+    margin-bottom: 2rem;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Styling for the Gender/Stage/Pool dropdowns and the Sport dropdown */
 .dropdowns-container {
     display: flex;
     justify-content: center;
@@ -118,6 +130,26 @@
     gap: 1rem;
     cursor: pointer;
     z-index: 10;
+    /* Base Z-Index */
+}
+
+/* --- FIX: Dynamically raise the Z-index of the open dropdown wrapper --- */
+.dropdown-wrapper.active-dropdown {
+    z-index: 100;
+    /* Lifts the active filter dropdown above its siblings */
+}
+
+/* ---------------------------------------------------------------------- */
+
+
+.dropdown-wrapper label {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    color: #b0e0ff;
+    text-shadow: 0 0 5px rgba(176, 224, 255, 0.6);
 }
 
 .custom-dropdown-button {
@@ -130,6 +162,9 @@
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .custom-dropdown-button.open {
@@ -157,14 +192,17 @@
 .dropdown-menu {
     position: absolute;
     top: calc(100% + 5px);
-    left: 0;
+    left: 8px;
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
     list-style: none;
     margin: 0;
     padding: 0;
-    background: rgba(1a, 1a, 1a, 0.9);
+    background: #1a1a1a;
+    /* Solid Dark Background */
+    z-index: 1000;
+    /* Highest Z-Index for the menu itself */
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
@@ -184,6 +222,9 @@
     color: #fff;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .dropdown-menu li:hover {
@@ -233,14 +274,12 @@
 
 .scoreboard-table-container {
     margin-bottom: 3rem;
-    /* Allows table to scroll horizontally on small screens */
     overflow-x: auto;
 }
 
 table {
     width: 100%;
     min-width: 600px;
-    /* Ensures the table doesn't get too narrow on mobile */
     border-collapse: separate;
     border-spacing: 0 10px;
     margin-top: 1rem;
@@ -419,7 +458,6 @@ tbody tr:hover td {
     flex-direction: column;
     justify-content: space-around;
     margin-bottom: 25px;
-    /* Add space between matches */
 }
 
 .bracket-match:hover {
@@ -469,35 +507,67 @@ tbody tr:hover td {
     text-shadow: 0 0 5px rgba(255, 170, 0, 0.4);
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .main-points-heading {
         font-size: 3rem;
+        margin-bottom: 2.5rem;
     }
 
+    /* HIDE the Radio Buttons on small screens */
     .sports-radio-container {
-        flex-direction: column;
-        align-items: center;
+        display: none;
+    }
+
+    /* SHOW the Mobile Sport Dropdown on small screens */
+    .sports-mobile-dropdown-nav {
+        display: block;
+        margin-bottom: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sports-mobile-dropdown-nav .custom-dropdown-button {
         width: 100%;
-        gap: 10px;
     }
 
-    .sport-radio-label {
-        width: 90%;
-        justify-content: center;
-    }
-
+    /* Styles for the Gender/Stage/Pool dropdowns container */
     .dropdowns-container {
         flex-direction: column;
         gap: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 100%;
     }
 
+    /* Styles for individual dropdown wrappers (Gender/Stage/Pool) */
     .dropdown-wrapper {
-        width: 90%;
-        justify-content: center;
+        width: 80%;
+        max-width: 350px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        justify-content: space-between;
+        /* Re-establish position relative for z-index to work correctly */
+        position: relative;
+    }
+
+    .dropdown-wrapper label {
+        flex-shrink: 0;
+        padding-left: 5px;
+    }
+
+    .custom-dropdown-button {
+        flex-grow: 1;
+        max-width: 84%;
+        text-align: left;
+        margin-left: 5px;
     }
 
     .scoreboard-container {
         padding: 1.5rem;
+        margin-bottom: 3rem;
     }
 
     .scoreboard-container h2 {
@@ -512,18 +582,6 @@ tbody tr:hover td {
         min-width: 500px;
     }
 
-    .match-card {
-        padding: 1rem;
-    }
-
-    .match-team {
-        font-size: 1.2rem;
-    }
-
-    .match-score {
-        font-size: 1.4rem;
-    }
-
     .knockout-bracket-container {
         flex-wrap: nowrap;
         justify-content: flex-start;
@@ -533,17 +591,5 @@ tbody tr:hover td {
 
     .bracket-round {
         min-width: 220px;
-    }
-
-    .bracket-round h3 {
-        font-size: 1.5rem;
-    }
-
-    .bracket-team {
-        font-size: 1rem;
-    }
-
-    .team-score {
-        font-size: 1.2rem;
     }
 }

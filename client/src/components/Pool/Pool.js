@@ -1,11 +1,11 @@
 import React from 'react';
 import './Pool.css';
 
-// Reusable Table component (same as before)
-function PoolTable({ title, headings, data }) {
+// Reusable Table component (title prop removed, only handles the scrollable table)
+function PoolTable({ headings, data }) {
     return (
+        // The container now *only* wraps the scrollable table
         <div className="pool-table-container">
-            <h3>{title}</h3>
             <table>
                 <thead>
                     <tr>
@@ -37,6 +37,7 @@ function Pool() {
     ];
 
     const girlsData = [
+        // Note: Data for a single pool must still be an array of arrays
         ['PG + ME'],
         ['CE + PIE'],
         ['EE + CSE'],
@@ -47,16 +48,20 @@ function Pool() {
         <div className="pool-page-content">
             <h1 className="main-pool-heading">Pool</h1>
             <div className="pool-container">
+
                 <div className="pool-section boys-section">
+                    {/* The heading is now placed *outside* the PoolTable component's scroll container */}
+                    <h3>Boys</h3>
                     <PoolTable
-                        title="Boys"
                         headings={['Pool A', 'Pool B']}
                         data={boysData}
                     />
                 </div>
+
                 <div className="pool-section girls-section">
+                    {/* The heading is now placed *outside* the PoolTable component's scroll container */}
+                    <h3>Girls</h3>
                     <PoolTable
-                        title="Girls"
                         headings={['Pool']}
                         data={girlsData}
                     />

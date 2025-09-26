@@ -1,14 +1,19 @@
 export const lawnTennisBoysPoolA = {
     pointsTable: {
-        headings: ['Player', 'Sets Won', 'Sets Lost', 'Matches Won'],
+        headings: ['Player', 'Pld', 'W', 'L', 'Pts'],
         data: [
-            ['Harshit Srivastava (CS)', 2, 4, 1, 1],
-            ['Priyanshu Dev (CE)', 2, 4, 1, 1],
-            ['Mrinal Ayush (MM)', 2, 2, 2, 0],
+            ['ME + PG', 0, 0, 0, 0],
+            ['CE + PIE + ECM', 0, 0, 0, 0],
+            ['ECE + MME', 0, 0, 0, 0],
+            ['EE + CSE', 0, 0, 0, 0],
         ]
     },
     matches: [
-        { date: '10 September 2025', time: '13:00', teams: ['Harshit Srivastava', 'Priyanshu Dev'], scores: ['2', '1'], winner: 'Harshit Srivastava', winBy: '2-1 sets', venue: 'Lawn Tennis Court', scorecardUrl: '#' },
-        { date: '11 September 2025', time: '14:00', teams: ['Priyanshu Dev', 'Mrinal Ayush'], scores: ['1', '2'], winner: 'Mrinal Ayush', winBy: '2-1 sets', venue: 'Lawn Tennis Court', scorecardUrl: '#' }
+        { date: '26 September 2025', time: '7:00 PM', teams: ['ME + PG', 'CE + PIE + ECM'], scores: ['', ''], winner: '', winBy: '', venue: 'Lawn Tennis Court' },
+        { date: '27 September 2025', time: '7:00 AM', teams: ['EE + CSE', 'ECE + MME'], scores: ['', ''], winner: '', winBy: '', venue: 'Lawn Tennis Court' },
+        { date: '27 September 2025', time: '6:00 PM', teams: ['ME + PG', 'EE + CSE'], scores: ['', ''], winner: '', winBy: '', venue: 'Lawn Tennis Court' },
+        { date: '27 September 2025', time: '7:30 PM', teams: ['CE + PIE + ECM', 'ECE + MME'], scores: ['', ''], winner: '', winBy: '', venue: 'Lawn Tennis Court' },
+        { date: '28 September 2025', time: '7:00 AM', teams: ['ME + PG', 'ECE + MME'], scores: ['', ''], winner: '', winBy: '', venue: 'Lawn Tennis Court' },
+        { date: '28 September 2025', time: '8:30 AM', teams: ['EE + CSE', 'CE + PIE + ECM'], scores: ['', ''], winner: '', winBy: '', venue: 'Lawn Tennis Court' }
     ]
 };

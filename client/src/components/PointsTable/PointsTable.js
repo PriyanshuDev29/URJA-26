@@ -8,7 +8,7 @@ const sportsDataMap = {
             'Boys': ['Pool A', 'Pool B'],
             'Girls': ['Pool A']
         },
-        stages: ['Group Stage', 'Knockout'] // Added stages
+        stages: ['Group Stage', 'Knockout']
     },
     'Chess': {
         genders: ['Boys', 'Girls'],
@@ -19,33 +19,30 @@ const sportsDataMap = {
         stages: ['Group Stage', 'Knockout']
     },
     'Cricket': {
-        genders: ['Boys', 'Girls'],
+        genders: ['Boys'],
         pools: {
             'Boys': ['Pool A', 'Pool B'],
-            'Girls': ['Pool A']
         },
         stages: ['Group Stage', 'Knockout']
     },
     'Football': {
-        genders: ['Boys', 'Girls'],
+        genders: ['Boys'],
         pools: {
             'Boys': ['Pool A', 'Pool B'],
-            'Girls': ['Pool A']
         },
         stages: ['Group Stage', 'Knockout']
     },
     'Hockey': {
-        genders: ['Boys', 'Girls'],
+        genders: ['Boys'],
         pools: {
-            'Boys': ['Pool A', 'Pool B'],
-            'Girls': ['Pool A']
+            'Boys': ['Pool A']
         },
         stages: ['Group Stage', 'Knockout']
     },
     'Lawn Tennis': {
         genders: ['Boys', 'Girls'],
         pools: {
-            'Boys': ['Pool A', 'Pool B'],
+            'Boys': ['Pool A'],
             'Girls': ['Pool A']
         },
         stages: ['Group Stage', 'Knockout']
@@ -139,13 +136,13 @@ function MatchesList({ matches }) {
                             </div>
                         )}
                     </div>
-                    {match.winner !== 'Upcoming Match' && (
+                    {/* {match.winner !== 'Upcoming Match' && (
                         <p className="match-result">
                             {match.winner} won by {match.winBy}
                         </p>
-                    )}
+                    )} */}
                     <p className="match-venue">Venue: {match.venue}</p>
-                    <a href={match.scorecardUrl} className="scorecard-link">Scorecard</a>
+                    {/* <a href={match.scorecardUrl} className="scorecard-link">Scorecard</a> */}
                 </div>
             ))}
         </div>
@@ -175,11 +172,14 @@ function Dropdown({ label, options, value, onChange }) {
         };
     }, [dropdownRef]);
 
+    const displayValue = value ? formatString(value) : (options.length > 0 ? formatString(options[0]) : label);
+
     return (
-        <div className="dropdown-wrapper" ref={dropdownRef}>
+        // --- CHANGE: Add active-dropdown class when open ---
+        <div className={`dropdown-wrapper ${isOpen ? 'active-dropdown' : ''}`} ref={dropdownRef}>
             <label>{label}:</label>
             <div className={`custom-dropdown-button ${isOpen ? 'open' : ''}`} onClick={toggleOpen}>
-                {formatString(value)}
+                {displayValue}
                 <span className="dropdown-arrow"></span>
             </div>
             {isOpen && (
@@ -195,7 +195,6 @@ function Dropdown({ label, options, value, onChange }) {
     );
 }
 
-// New KnockoutBracket component
 function KnockoutBracket({ data }) {
     if (!data || !data.rounds || data.rounds.length === 0) {
         return <p className="no-data-message">No knockout bracket data available for this selection.</p>;
@@ -239,6 +238,12 @@ function PointsTable() {
     const [selectedStage, setSelectedStage] = useState('Group Stage');
     const [currentData, setCurrentData] = useState(null);
 
+    // NEW STATE FOR MOBILE DROPDOWN:
+    const [isMobileSportDropdownOpen, setIsMobileSportDropdownOpen] = useState(false);
+    const mobileDropdownRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+
     const sportsList = [
         { name: 'Basketball', emoji: '🏀' },
         { name: 'Chess', emoji: '♟️' },
@@ -250,6 +255,25 @@ function PointsTable() {
         { name: 'Volleyball', emoji: '🏐' }
     ];
 
+    // --- State Management and Data Fetching Logic ---
+
+    // Effect to handle dynamic pool selection when sport/gender/stage changes
+    useEffect(() => {
+        const poolsForCurrentGender = sportsDataMap[selectedSport]?.pools[selectedGender] || [];
+
+        if (selectedStage === 'Group Stage') {
+            if (poolsForCurrentGender.length > 0 && !poolsForCurrentGender.includes(selectedPool)) {
+                setSelectedPool(poolsForCurrentGender[0]);
+            } else if (poolsForCurrentGender.length === 0) {
+                setSelectedPool('');
+            }
+        } else if (selectedStage === 'Knockout') {
+            setSelectedPool('');
+        }
+    }, [selectedSport, selectedGender, selectedStage, selectedPool]);
+
+
+    // Effect to import the data based on current selections
     useEffect(() => {
         const importData = async () => {
             setCurrentData(null);
@@ -283,33 +307,42 @@ function PointsTable() {
         importData();
     }, [selectedSport, selectedGender, selectedPool, selectedStage]);
 
+    // Effect to handle resize and close dropdown on outside click
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        window.addEventListener('resize', handleResize);
+
+        function handleClickOutside(event) {
+            if (mobileDropdownRef.current && !mobileDropdownRef.current.contains(event.target)) {
+                setIsMobileSportDropdownOpen(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    // --- Handler Functions ---
+
     const handleSportChange = (event) => {
         const newSport = event.target.value;
         setSelectedSport(newSport);
+        setIsMobileSportDropdownOpen(false); // Close dropdown after selection
 
         const genders = sportsDataMap[newSport]?.genders || [];
         if (genders.length > 0) {
             setSelectedGender(genders[0]);
-            const pools = sportsDataMap[newSport]?.pools[genders[0]] || [];
-            if (pools.length > 0) {
-                setSelectedPool(pools[0]);
-            } else {
-                setSelectedPool('');
-            }
         }
-        setSelectedStage('Group Stage');
     };
 
     const handleGenderChange = (event) => {
         const newGender = event.target.value;
         setSelectedGender(newGender);
-        const pools = sportsDataMap[selectedSport]?.pools[newGender] || [];
-        if (pools.length > 0) {
-            setSelectedPool(pools[0]);
-        } else {
-            setSelectedPool('');
-        }
-        setSelectedStage('Group Stage');
     };
 
     const handlePoolChange = (event) => {
@@ -320,32 +353,75 @@ function PointsTable() {
         setSelectedStage(event.target.value);
     };
 
+    const toggleMobileSportDropdown = () => {
+        setIsMobileSportDropdownOpen(!isMobileSportDropdownOpen);
+    }
+
+    // Helper function to render the mobile dropdown's selected value (with emoji)
+    const renderSelectedSport = () => {
+        const sport = sportsList.find(s => s.name === selectedSport);
+        return sport ? `${sport.emoji} ${sport.name}` : selectedSport;
+    }
+
 
     const genders = sportsDataMap[selectedSport]?.genders || [];
     const pools = sportsDataMap[selectedSport]?.pools[selectedGender] || [];
     const stages = sportsDataMap[selectedSport]?.stages || [];
 
+    // --- JSX Render ---
+
     return (
         <div className="points-table-page">
             <h1 className="main-points-heading">Points Table</h1>
-            <div className="sports-radio-container">
-                {sportsList.map((sport) => (
-                    <label key={sport.name} className="sport-radio-label">
-                        <input
-                            type="radio"
-                            name="sport"
-                            value={sport.name}
-                            checked={selectedSport === sport.name}
-                            onChange={handleSportChange}
-                            className="sport-radio-input"
-                        />
-                        <span className="sport-radio-text">
-                            <span className="sport-emoji">{sport.emoji}</span>
-                            {sport.name}
-                        </span>
-                    </label>
-                ))}
-            </div>
+
+            {/* MOBILE SPORT DROPDOWN (Shown when isMobile is true) */}
+            {isMobile && (
+                <div className="sports-mobile-dropdown-nav" ref={mobileDropdownRef}>
+                    <div
+                        className={`custom-dropdown-button ${isMobileSportDropdownOpen ? 'open' : ''}`}
+                        onClick={toggleMobileSportDropdown}
+                    >
+                        {renderSelectedSport()}
+                        <span className="dropdown-arrow"></span>
+                    </div>
+                    {isMobileSportDropdownOpen && (
+                        <ul className="dropdown-menu">
+                            {sportsList.map((sport) => (
+                                <li
+                                    key={sport.name}
+                                    // Simulate the event object expected by handleSportChange
+                                    onClick={() => handleSportChange({ target: { value: sport.name } })}
+                                    className={sport.name === selectedSport ? 'selected' : ''}
+                                >
+                                    {sport.emoji} {sport.name}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+            )}
+
+            {/* RADIO BUTTONS (Shown when isMobile is false) */}
+            {!isMobile && (
+                <div className="sports-radio-container">
+                    {sportsList.map((sport) => (
+                        <label key={sport.name} className="sport-radio-label">
+                            <input
+                                type="radio"
+                                name="sport"
+                                value={sport.name}
+                                checked={selectedSport === sport.name}
+                                onChange={handleSportChange}
+                                className="sport-radio-input"
+                            />
+                            <span className="sport-radio-text">
+                                <span className="sport-emoji">{sport.emoji}</span>
+                                {sport.name}
+                            </span>
+                        </label>
+                    ))}
+                </div>
+            )}
 
             <div className="dropdowns-container">
                 {genders.length > 0 && (
