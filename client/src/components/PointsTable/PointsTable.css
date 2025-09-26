@@ -193,7 +193,7 @@
     position: absolute;
     top: calc(100% + 5px);
     left: 8px;
-    width: 100%;
+    width: 95%;
     max-height: 200px;
     overflow-y: auto;
     list-style: none;
@@ -528,7 +528,7 @@ tbody tr:hover td {
     }
 
     .sports-mobile-dropdown-nav .custom-dropdown-button {
-        width: 100%;
+        width: 80%;
     }
 
     /* Styles for the Gender/Stage/Pool dropdowns container */
