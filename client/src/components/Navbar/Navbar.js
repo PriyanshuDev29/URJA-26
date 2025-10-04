@@ -1,43 +1,4 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import './Navbar.css';
-
-// const logo = '/urja-logo-white.png';
-
-// function Navbar() {
-//     const [isOpen, setIsOpen] = useState(false);
-
-//     const toggleMenu = () => {
-//         setIsOpen(!isOpen);
-//     };
-
-//     return (
-//         <nav className="navbar">
-//             <img src={logo} alt="URJA Logo" className="navbar-logo" />
-
-//             <div className="hamburger" onClick={toggleMenu}>
-//                 <div className="line"></div>
-//                 <div className="line"></div>
-//                 <div className="line"></div>
-//             </div>
-
-//             <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-//                 <li><Link to="/" className="home-link" onClick={toggleMenu}>Home</Link></li>
-//                 <li><Link to="/team" className="team-link" onClick={toggleMenu}>Team</Link></li>
-//                 <li><Link to="/sports" className="sports-link" onClick={toggleMenu}>Sports</Link></li>
-//                 <li><Link to="/pool" className="pool-link" onClick={toggleMenu}>Pool</Link></li>
-//                 <li><Link to="/points-table" className="points-table-link" onClick={toggleMenu}>Points Table</Link></li>
-//                 <li><Link to="/gallery" className="gallery-link" onClick={toggleMenu}>Gallery</Link></li>
-//             </ul>
-//         </nav>
-//     );
-// }
-
-// export default Navbar;
-
-
-//Navbar.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -50,34 +11,49 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
-    // Close the menu when a link is clicked
-    const handleLinkClick = () => {
-        if (isOpen) {
-            setIsOpen(false);
-        }
+    const closeMenu = () => {
+        setIsOpen(false);
     };
+
+    
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
+        
+        // Cleanup on unmount
+        return () => {
+            document.body.classList.remove('menu-open');
+        };
+    }, [isOpen]);
 
     return (
         <nav className="navbar">
-            <Link to="/" onClick={handleLinkClick}>
-                <img src={logo} alt="URJA Logo" className="navbar-logo" />
-            </Link>
+            {/* Logo - hidden when menu is open on mobile */}
+            <img 
+                src={logo} 
+                alt="URJA Logo" 
+                className={`navbar-logo ${isOpen ? 'hide-logo' : ''}`} 
+            />
 
-            {/* The "open" class is added here when the menu is active */}
+            {/* Hamburger Menu */}
             <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
             </div>
 
+            {/* Navigation Links */}
             <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-                <li><Link to="/" className="home-link" onClick={toggleMenu}>Home</Link></li>
-                <li><Link to="/team" className="team-link" onClick={toggleMenu}>Team</Link></li>
-                <li><Link to="/sports" className="sports-link" onClick={toggleMenu}>Sports</Link></li>
-                <li><Link to="/pool" className="pool-link" onClick={toggleMenu}>Pool</Link></li>
-                <li><Link to="/points-table" className="points-table-link" onClick={toggleMenu}>Points Table</Link></li>
-                <li><Link to="/gallery" className="gallery-link" onClick={handleLinkClick}>Gallery</Link></li>
-                <li><Link to="/leaderboard" onClick={toggleMenu}>Leaderboard</Link></li>
+                <li><Link to="/" className="home-link" onClick={closeMenu}>Home</Link></li>
+                <li><Link to="/team" className="team-link" onClick={closeMenu}>Team</Link></li>
+                <li><Link to="/sports" className="sports-link" onClick={closeMenu}>Sports</Link></li>
+                <li><Link to="/gallery" className="gallery-link" onClick={closeMenu}>Gallery</Link></li>
+                <li><Link to="/pool" className="pool-link" onClick={closeMenu}>Pool</Link></li>
+                <li><Link to="/leaderboard" className="branch-leaderboard-link" onClick={closeMenu}>Leaderboard</Link></li>
+                <li><Link to="/points-table" className="points-table-link" onClick={closeMenu}>Points Table</Link></li>
             </ul>
         </nav>
     );
