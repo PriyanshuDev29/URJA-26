@@ -27,6 +27,7 @@ function Navbar() {
                 <li><Link to="/sports" className="sports-link" onClick={toggleMenu}>Sports</Link></li>
                 <li><Link to="/pool" className="pool-link" onClick={toggleMenu}>Pool</Link></li>
                 <li><Link to="/points-table" className="points-table-link" onClick={toggleMenu}>Points Table</Link></li>
+                <li><Link to="/leaderboard" onClick={toggleMenu}>Leaderboard</Link></li>
             </ul>
         </nav>
     );

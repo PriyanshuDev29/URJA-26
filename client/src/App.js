@@ -6,6 +6,7 @@ import Sports from './components/Sports/Sports.js';
 import Pool from './components/Pool/Pool.js';
 import PointsTable from './components/PointsTable/PointsTable.js';
 import Navbar from './components/Navbar/Navbar'; // Add this import
+import LeaderBoard from './components/LeaderBoard/LeaderBoard.js';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/sports" element={<Sports />} />
         <Route path="/pool" element={<Pool />} />
         <Route path="/points-table" element={<PointsTable />} />
+        <Route path="/leaderboard" element={<LeaderBoard />} />
       </Routes>
     </Router>
   );
