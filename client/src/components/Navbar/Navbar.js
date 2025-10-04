@@ -31,14 +31,21 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-            <img src={logo} alt="URJA Logo" className="navbar-logo" />
+            {/* Logo - hidden when menu is open on mobile */}
+            <img 
+                src={logo} 
+                alt="URJA Logo" 
+                className={`navbar-logo ${isOpen ? 'hide-logo' : ''}`} 
+            />
 
+            {/* Hamburger Menu */}
             <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
             </div>
 
+            {/* Navigation Links */}
             <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
                 <li><Link to="/" className="home-link" onClick={closeMenu}>Home</Link></li>
                 <li><Link to="/team" className="team-link" onClick={closeMenu}>Team</Link></li>

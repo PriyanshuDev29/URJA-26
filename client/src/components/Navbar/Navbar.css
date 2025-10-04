@@ -174,6 +174,18 @@
         overflow: visible;
     }
 
+    /* Logo transition for mobile */
+    .navbar-logo {
+        height: 50px;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Hide logo when menu is open (mobile only) */
+    .navbar-logo.hide-logo {
+        opacity: 0;
+        pointer-events: none;
+    }
+
     /* Show hamburger icon on mobile */
     .hamburger {
         display: flex;
@@ -235,10 +247,6 @@
         padding: 0.8rem 1.2rem;
         letter-spacing: 0.08em;
     }
-
-    .navbar-logo {
-        height: 50px;
-    }
 }
 
 /* Extra small screens */
@@ -246,6 +254,10 @@
     .navbar {
         padding: 0.5rem 0.8rem;
         overflow: visible;
+    }
+
+    .navbar-logo {
+        height: 45px;
     }
 
     .hamburger {
@@ -257,9 +269,5 @@
         font-size: 1.4rem;
         padding: 0.7rem 1rem;
         letter-spacing: 0.05em;
-    }
-
-    .navbar-logo {
-        height: 45px;
     }
 }

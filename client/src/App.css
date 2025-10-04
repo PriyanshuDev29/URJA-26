@@ -34,7 +34,7 @@ img {
 
 /* Add padding top to account for fixed navbar */
 body {
-  padding-top: 80px;
+  padding-top: 90px;
 }
 
 /* Prevent body scroll when menu is open */
