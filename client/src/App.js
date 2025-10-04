@@ -7,11 +7,15 @@ import Pool from './components/Pool/Pool.js';
 import PointsTable from './components/PointsTable/PointsTable.js';
 import Navbar from './components/Navbar/Navbar'; // Add this import
 import Footer from './components/Footer/Footer.js'; 
+import LeaderBoard from './components/LeaderBoard/LeaderBoard.js';
+
 
 import './App.css';
+import Gallery from './components/Gallery/Gallery.js';
 
 function App() {
   return (
+
      <div className="App-container">
       <Router>
         <Navbar />
@@ -22,11 +26,14 @@ function App() {
             <Route path="/sports" element={<Sports />} />
             <Route path="/pool" element={<Pool />} />
             <Route path="/points-table" element={<PointsTable />} />
+              <Route path="/gallery" element={<Gallery/>} />
+        <Route path="/leaderboard" element={<LeaderBoard />} />
           </Routes>
         </div>
         <Footer />
       </Router>
     </div>
+
   );
 }
 
