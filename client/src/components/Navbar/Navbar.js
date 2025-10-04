@@ -15,7 +15,7 @@ function Navbar() {
         setIsOpen(false);
     };
 
-    // Prevent body scroll when menu is open
+    
     useEffect(() => {
         if (isOpen) {
             document.body.classList.add('menu-open');
