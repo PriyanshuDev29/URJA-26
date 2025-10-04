@@ -5,16 +5,17 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   width: 100%;
-  overflow-x: hidden;
+  /* FIX 1: Removed overflow-x: hidden from html, body */
   margin: 0;
   padding: 0;
 }
 
 #root {
   width: 100%;
-  overflow-x: hidden;
+  /* FIX 2: Removed overflow-x: hidden from #root */
 }
 
 /* Make sure all containers are responsive */
@@ -23,7 +24,7 @@ html, body {
 section,
 div {
   max-width: 100%;
-  overflow-x: hidden;
+  /* FIX 3: Removed the highly problematic overflow-x: hidden from generic div */
 }
 
 /* Responsive images */
@@ -34,7 +35,7 @@ img {
 
 /* Add padding top to account for fixed navbar */
 body {
-  padding-top: 90px;
+  padding-top: 50px;
 }
 
 /* Prevent body scroll when menu is open */
@@ -46,15 +47,15 @@ body.menu-open {
 }
 
 /* Mobile adjustments */
-@media (max-width: 768px) {
+@media (min-width:577px) and (max-width: 768px) {
   body {
-    padding-top: 70px;
+    padding-top: 40px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 576px) {
   body {
-    padding-top: 65px;
+    padding-top: 20px;
   }
 }
 
@@ -62,7 +63,7 @@ body.menu-open {
 .App {
   text-align: center;
   width: 100%;
-  overflow-x: hidden;
+  /* FIX 4: Removed overflow-x: hidden from .App */
 }
 
 .App-logo {
@@ -95,6 +96,7 @@ body.menu-open {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

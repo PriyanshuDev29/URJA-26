@@ -9,6 +9,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    /* CRITICAL FIX: Ensures absolute children are NOT clipped by this container */
+    overflow: visible !important;
+    position: relative;
+    z-index: 0;
 }
 
 /* Main "Points Table" heading */
@@ -105,8 +109,8 @@
     display: none;
     /* Hidden by default (desktop) */
     position: relative;
-    z-index: 200;
-    /* High base Z-Index for the Sport dropdown */
+    z-index: 2000;
+    /* CRITICAL FIX: High Z-Index for the Sport dropdown */
     margin-bottom: 2rem;
     width: 90%;
     max-width: 400px;
@@ -130,12 +134,11 @@
     gap: 1rem;
     cursor: pointer;
     z-index: 10;
-    /* Base Z-Index */
 }
 
 /* --- FIX: Dynamically raise the Z-index of the open dropdown wrapper --- */
 .dropdown-wrapper.active-dropdown {
-    z-index: 100;
+    z-index: 200;
     /* Lifts the active filter dropdown above its siblings */
 }
 
@@ -192,8 +195,10 @@
 .dropdown-menu {
     position: absolute;
     top: calc(100% + 5px);
-    left: 8px;
-    width: 95%;
+    left: 0;
+    /* Changed from 8px to 0 for better alignment */
+    width: 100%;
+    /* Changed from 95% to 100% for better alignment */
     max-height: 200px;
     overflow-y: auto;
     list-style: none;
@@ -201,8 +206,8 @@
     padding: 0;
     background: #1a1a1a;
     /* Solid Dark Background */
-    z-index: 1000;
-    /* Highest Z-Index for the menu itself */
+    z-index: 2001;
+    /* CRITICAL FIX: Highest Z-Index for the menu options */
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
@@ -225,7 +230,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    text-align: left;
 }
 
 .dropdown-menu li:hover {
@@ -247,16 +251,19 @@
 
 /* Scoreboard container and table styling */
 .scoreboard-container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin-top: 2rem;
-    padding: 2.5rem;
+    padding: 3.5rem;
     background: linear-gradient(135deg, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.8));
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(2px);
     text-align: left;
+    position: relative;
+    z-index: 1;
+    /* Keep content below dropdowns (2000/2001) */
 }
 
 .scoreboard-container h2 {
@@ -425,6 +432,9 @@ tbody tr:hover td {
     overflow-x: auto;
     width: 90%;
     max-width: 1200px;
+    position: relative;
+    z-index: 1;
+    /* Keep content below dropdowns (2000/2001) */
 }
 
 .bracket-round {
@@ -517,7 +527,7 @@ tbody tr:hover td {
 
     /* HIDE the Radio Buttons on small screens */
     .sports-radio-container {
-        display: none;
+        display: none !important;
     }
 
     /* SHOW the Mobile Sport Dropdown on small screens */
@@ -526,10 +536,11 @@ tbody tr:hover td {
         margin-bottom: 3rem;
         margin-left: auto;
         margin-right: auto;
+        z-index: 2000;
     }
 
     .sports-mobile-dropdown-nav .custom-dropdown-button {
-        width: 80%;
+        width: 100%;
     }
 
     /* Styles for the Gender/Stage/Pool dropdowns container */
@@ -539,6 +550,7 @@ tbody tr:hover td {
         margin-top: 0;
         margin-bottom: 3rem;
         width: 100%;
+        z-index: 1000;
     }
 
     /* Styles for individual dropdown wrappers (Gender/Stage/Pool) */
@@ -561,13 +573,14 @@ tbody tr:hover td {
 
     .custom-dropdown-button {
         flex-grow: 1;
-        max-width: 84%;
+        max-width: 100%;
         text-align: left;
         margin-left: 5px;
     }
 
     .scoreboard-container {
-        padding: 1.5rem;
+        width: 99%;
+        padding: 2.5rem;
         margin-bottom: 3rem;
     }
 

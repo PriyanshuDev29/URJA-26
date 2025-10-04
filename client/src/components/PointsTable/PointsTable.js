@@ -240,9 +240,9 @@ function KnockoutBracket({ data }) {
 
 
 function PointsTable() {
-    const [selectedSport, setSelectedSport] = useState('Basketball');
+    const [selectedSport, setSelectedSport] = useState('Athletics');
     const [selectedGender, setSelectedGender] = useState('Boys');
-    const [selectedPool, setSelectedPool] = useState('Pool A');
+    const [selectedPool, setSelectedPool] = useState('100m');
     const [selectedStage, setSelectedStage] = useState('Group Stage');
     const [currentData, setCurrentData] = useState(null);
 
@@ -469,8 +469,8 @@ function PointsTable() {
                     <>
                         <h2>
                             {selectedSport} - {formatString(selectedGender)} |&nbsp;
-                            {selectedSport === 'Athletics' ? formatString(selectedPool) : 
-                             selectedStage === 'Group Stage' ? formatString(selectedPool) : formatString(selectedStage)}
+                            {selectedSport === 'Athletics' ? formatString(selectedPool) :
+                                selectedStage === 'Group Stage' ? formatString(selectedPool) : formatString(selectedStage)}
                         </h2>
                         {selectedStage === 'Group Stage' ? (
                             <>
