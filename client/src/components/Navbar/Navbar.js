@@ -52,7 +52,7 @@ function Navbar() {
                 <li><Link to="/sports" className="sports-link" onClick={closeMenu}>Sports</Link></li>
                 <li><Link to="/gallery" className="gallery-link" onClick={closeMenu}>Gallery</Link></li>
                 <li><Link to="/pool" className="pool-link" onClick={closeMenu}>Pool</Link></li>
-                <li><Link to="/branch-leaderboard" className="branch-leaderboard-link" onClick={closeMenu}>Branch Leaderboard</Link></li>
+                <li><Link to="/leaderboard" className="branch-leaderboard-link" onClick={closeMenu}>Leaderboard</Link></li>
                 <li><Link to="/points-table" className="points-table-link" onClick={closeMenu}>Points Table</Link></li>
             </ul>
         </nav>
