@@ -4,7 +4,7 @@
 .gallery-container {
   padding: 120px 2rem 2rem 2rem; /* Add top padding to be below the fixed navbar */
   min-height: 100vh;
-  background-color: #0a0a0a; /* Dark background */
+  /* background-color: #0a0a0a; Dark background */
   color: #fff;
   font-family: "Orbitron", "Segoe UI", "Arial", sans-serif;
 }
@@ -21,7 +21,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 10px rgba(255, 60, 0, 0.5), 0 0 15px rgba(0, 207, 255, 0.5);
+  /* text-shadow: 0 0 10px rgba(255, 60, 0, 0.5), 0 0 15px rgba(0, 207, 255, 0.5); */
 }
 
 /* --- Responsive Image Grid --- */
