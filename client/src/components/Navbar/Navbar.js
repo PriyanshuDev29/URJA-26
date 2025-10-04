@@ -71,12 +71,13 @@ function Navbar() {
             </div>
 
             <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-                <li><Link to="/" className="home-link" onClick={handleLinkClick}>Home</Link></li>
-                <li><Link to="/team" className="team-link" onClick={handleLinkClick}>Team</Link></li>
-                <li><Link to="/sports" className="sports-link" onClick={handleLinkClick}>Sports</Link></li>
-                <li><Link to="/pool" className="pool-link" onClick={handleLinkClick}>Pool</Link></li>
-                <li><Link to="/points-table" className="points-table-link" onClick={handleLinkClick}>Points Table</Link></li>
+                <li><Link to="/" className="home-link" onClick={toggleMenu}>Home</Link></li>
+                <li><Link to="/team" className="team-link" onClick={toggleMenu}>Team</Link></li>
+                <li><Link to="/sports" className="sports-link" onClick={toggleMenu}>Sports</Link></li>
+                <li><Link to="/pool" className="pool-link" onClick={toggleMenu}>Pool</Link></li>
+                <li><Link to="/points-table" className="points-table-link" onClick={toggleMenu}>Points Table</Link></li>
                 <li><Link to="/gallery" className="gallery-link" onClick={handleLinkClick}>Gallery</Link></li>
+                <li><Link to="/leaderboard" onClick={toggleMenu}>Leaderboard</Link></li>
             </ul>
         </nav>
     );
