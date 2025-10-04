@@ -225,6 +225,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    text-align: left;
 }
 
 .dropdown-menu li:hover {
