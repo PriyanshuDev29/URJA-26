@@ -6,20 +6,27 @@ import Sports from './components/Sports/Sports.js';
 import Pool from './components/Pool/Pool.js';
 import PointsTable from './components/PointsTable/PointsTable.js';
 import Navbar from './components/Navbar/Navbar'; // Add this import
+import Footer from './components/Footer/Footer.js'; 
+
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/sports" element={<Sports />} />
-        <Route path="/pool" element={<Pool />} />
-        <Route path="/points-table" element={<PointsTable />} />
-      </Routes>
-    </Router>
+     <div className="App-container">
+      <Router>
+        <Navbar />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/sports" element={<Sports />} />
+            <Route path="/pool" element={<Pool />} />
+            <Route path="/points-table" element={<PointsTable />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
