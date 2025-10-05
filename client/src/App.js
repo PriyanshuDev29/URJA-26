@@ -24,7 +24,7 @@ function App() {
             <Route path="/sports" element={<Sports />} />
             <Route path="/pool" element={<Pool />} />
             <Route path="/points-table" element={<PointsTable />} />
-              <Route path="/gallery" element={<Gallery/>} />
+        <Route path="/gallery" element={<Gallery/>} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
           </Routes>
         </div>
