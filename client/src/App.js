@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar'; // Add this import
 import LeaderBoard from './components/LeaderBoard/LeaderBoard.js';
 import './App.css';
 import Gallery from './components/Gallery/Gallery.js';
+import Footer from './components/Footer/Footer.js';
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
         <Route path="/sports" element={<Sports />} />
         <Route path="/pool" element={<Pool />} />
         <Route path="/points-table" element={<PointsTable />} />
-        <Route path="/gallery" element={<Gallery/>} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
