@@ -1,5 +1,69 @@
+/* Global Responsive Rules */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  /* FIX 1: Removed overflow-x: hidden from html, body */
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  /* FIX 2: Removed overflow-x: hidden from #root */
+}
+
+/* Make sure all containers are responsive */
+.container,
+.main-content,
+section,
+div {
+  max-width: 100%;
+  /* FIX 3: Removed the highly problematic overflow-x: hidden from generic div */
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Add padding top to account for fixed navbar */
+body {
+  padding-top: 50px;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Mobile adjustments */
+@media (min-width:577px) and (max-width: 768px) {
+  body {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding-top: 20px;
+  }
+}
+
+
 .App {
   text-align: center;
+  width: 100%;
+  /* FIX 4: Removed overflow-x: hidden from .App */
 }
 
 .App-logo {
@@ -32,9 +96,11 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+
 }
 
 .App-container {
@@ -45,5 +111,7 @@
 
 .main-content {
     flex: 1;
-    padding-top: 80px; 
+   
 }
+
+

@@ -2,6 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import './PointsTable.css';
 
 const sportsDataMap = {
+    'Athletics': {
+        genders: ['Boys', 'Girls'],
+        pools: {
+            'Boys': ['100m', '200m', '400m', '800m', '1500m', 'Discus', '4x400m Relay', 'Cross Country', '3000m', 'Tug Of War', 'Triple Jump', 'Medley', 'Long Jump', 'High Jump', 'Shot Put', 'Javelin Throw', '4x100m Relay'],
+            'Girls': ['100m', '200m', '400m', '800m', '1500m', 'Discus', '4x400m Relay', 'Cross Country', '3000m', 'Tug Of War', 'Triple Jump', 'Medley', 'Long Jump', 'High Jump', 'Shot Put', 'Javelin Throw', '4x100m Relay']
+        },
+        stages: ['Group Stage']
+    },
     'Basketball': {
         genders: ['Boys', 'Girls'],
         pools: {
@@ -232,9 +240,9 @@ function KnockoutBracket({ data }) {
 
 
 function PointsTable() {
-    const [selectedSport, setSelectedSport] = useState('Basketball');
+    const [selectedSport, setSelectedSport] = useState('Athletics');
     const [selectedGender, setSelectedGender] = useState('Boys');
-    const [selectedPool, setSelectedPool] = useState('Pool A');
+    const [selectedPool, setSelectedPool] = useState('100m');
     const [selectedStage, setSelectedStage] = useState('Group Stage');
     const [currentData, setCurrentData] = useState(null);
 
@@ -245,6 +253,7 @@ function PointsTable() {
 
 
     const sportsList = [
+        { name: 'Athletics', emoji: '🏃' },
         { name: 'Basketball', emoji: '🏀' },
         { name: 'Chess', emoji: '♟️' },
         { name: 'Cricket', emoji: '🏏' },
@@ -288,7 +297,12 @@ function PointsTable() {
                 let module;
                 let dataKey;
 
-                if (selectedStage === 'Group Stage') {
+                if (selectedSport === 'Athletics') {
+                    // For Athletics, import from events.js and find the specific event
+                    module = await import(`./sports/${sportFolderPath}/${genderFolderPath}/events.js`);
+                    const eventKey = 'athletics' + selectedPool.replace(/\s+/g, '').replace('m', 'm');
+                    dataKey = eventKey;
+                } else if (selectedStage === 'Group Stage') {
                     const poolFolderPath = selectedPool.toLowerCase().replace(' ', '-');
                     module = await import(`./sports/${sportFolderPath}/${genderFolderPath}/${poolFolderPath}.js`);
                     dataKey = Object.keys(module)[0];
@@ -432,7 +446,7 @@ function PointsTable() {
                         onChange={handleGenderChange}
                     />
                 )}
-                {stages.length > 0 && (
+                {stages.length > 0 && selectedSport !== 'Athletics' && (
                     <Dropdown
                         label="Stage"
                         options={stages}
@@ -440,9 +454,9 @@ function PointsTable() {
                         onChange={handleStageChange}
                     />
                 )}
-                {selectedStage === 'Group Stage' && pools.length > 0 && (
+                {((selectedStage === 'Group Stage' && selectedSport !== 'Athletics') || selectedSport === 'Athletics') && pools.length > 0 && (
                     <Dropdown
-                        label="Pool"
+                        label={selectedSport === 'Athletics' ? "Event" : "Pool"}
                         options={pools}
                         value={selectedPool}
                         onChange={handlePoolChange}
@@ -455,7 +469,8 @@ function PointsTable() {
                     <>
                         <h2>
                             {selectedSport} - {formatString(selectedGender)} |&nbsp;
-                            {selectedStage === 'Group Stage' ? formatString(selectedPool) : formatString(selectedStage)}
+                            {selectedSport === 'Athletics' ? formatString(selectedPool) :
+                                selectedStage === 'Group Stage' ? formatString(selectedPool) : formatString(selectedStage)}
                         </h2>
                         {selectedStage === 'Group Stage' ? (
                             <>

@@ -9,6 +9,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    /* CRITICAL FIX: Allows absolute dropdown menu to render outside its parent's bounds */
+    overflow: visible !important;
+    position: relative;
+    z-index: 0;
 }
 
 /* Main "Sports" heading */
@@ -104,7 +108,8 @@
 .sports-dropdown-container {
     display: none;
     position: relative;
-    z-index: 10;
+    z-index: 1010;
+    /* High Z-Index for dropdown wrapper */
     margin-bottom: 3rem;
 }
 
@@ -150,10 +155,8 @@
     overflow-y: auto;
     background: linear-gradient(135deg, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.8));
     border: 1px solid transparent;
-    /* border-image: linear-gradient(to right, #ff4400, #ff8800, #00aaff); */
     border-image-slice: 1;
     border-radius: 10px;
-    /* ADDED: Main border-radius for the dropdown container */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 15px rgba(0, 170, 255, 0.3), 0 5px 15px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
@@ -161,6 +164,8 @@
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    z-index: 1011;
+    /* Highest Z-Index for menu options */
 }
 
 .dropdown-item {
@@ -193,13 +198,16 @@
     padding: 3.5rem;
     background: linear-gradient(135deg, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.8));
     border-radius: 20px;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(0, 0, 0, 0.4);
     text-align: left;
     backdrop-filter: blur(2px);
     animation: contentBoxGlow 4s ease-in-out infinite alternate;
+    position: relative;
+    z-index: 1;
+    /* Content is below the dropdowns (1010/1011) */
 }
 
 /* NEW: Keyframe for a subtle, dual-tone glow on the content box */
@@ -292,22 +300,26 @@
 @media (min-width: 577px) and (max-width: 768px) {
 
     .sport-content {
-        padding: 1.5rem;
+        width: 99%;
+        padding: 2.5rem;
     }
 
     .main-sports-heading {
         font-size: 3rem;
     }
 
+    /* CRITICAL FIX: HIDE RADIO BUTTONS */
     .sports-radio-container {
-        display: none;
+        display: none !important;
     }
 
+    /* SHOW DROPDOWN */
     .sports-dropdown-container {
         display: block;
         width: 50%;
         position: relative;
         margin: 0 auto;
+        z-index: 1010;
     }
 
     .dropdown-arrow {
@@ -341,13 +353,10 @@
 
 /* Mobile styles */
 @media (max-width: 576px) {
-    /* .sports-content {
-        display: flex;
-        padding: 1.5rem;
-    } */
 
     .sport-content {
-        padding: 1.5rem;
+        width: 99%;
+        padding: 2.5rem;
     }
 
     .main-sports-heading {
@@ -355,11 +364,18 @@
         margin-bottom: 2rem;
     }
 
+    /* CRITICAL FIX: HIDE RADIO BUTTONS */
+    .sports-radio-container {
+        display: none !important;
+    }
+
+    /* SHOW DROPDOWN */
     .sports-dropdown-container {
         display: flex;
         width: 90%;
         margin: 0 auto;
         position: relative;
+        z-index: 1010;
     }
 
     .selected-option {
@@ -375,5 +391,6 @@
 
     .dropdown-options {
         width: 100%;
+        z-index: 1011;
     }
 }
