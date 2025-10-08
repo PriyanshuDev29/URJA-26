@@ -131,6 +131,7 @@
 }
 
 .hero-btn-primary {
+  justify-content: center;
   background-color: white;
   color: black;
   padding: 1rem 2rem;
