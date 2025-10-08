@@ -2,7 +2,7 @@
 .points-table-page {
     padding-top: 80px;
     color: #f0f0f0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     min-height: calc(100vh - 80px);
     display: flex;
@@ -13,6 +13,40 @@
     overflow: visible !important;
     position: relative;
     z-index: 0;
+    background: #000000;
+}
+
+/* Animated background effect */
+.points-table-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 170, 0, 0.06) 0%,
+        rgba(255, 68, 0, 0.06) 25%,
+        rgba(0, 199, 255, 0.06) 50%,
+        rgba(0, 102, 204, 0.06) 75%,
+        rgba(255, 170, 0, 0.06) 100%
+    );
+    background-size: 400% 400%;
+    animation: flowWave 14s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes flowWave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Main "Points Table" heading */
@@ -23,24 +57,94 @@
     margin-bottom: 3rem;
     color: #ffffff;
     letter-spacing: 5px;
-    animation: teamGlow 2.5s ease-in-out infinite alternate;
+    -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 170, 0, 0.8),
+        0 0 30px rgba(255, 68, 0, 0.8),
+        2px 2px 0px rgba(255, 106, 0, 0.6),
+        -2px -2px 0px rgba(0, 199, 255, 0.6),
+        4px 4px 0px rgba(255, 45, 0, 0.4),
+        -4px -4px 0px rgba(30, 144, 255, 0.4);
+    animation: pointsGlow 3s ease-in-out infinite alternate, hyperspeedLines 2s linear infinite;
+    position: relative;
+    z-index: 1;
 }
 
-@keyframes teamGlow {
+@keyframes pointsGlow {
     from {
         text-shadow:
-            0 0 5px #fff,
-            0 0 10px #ff7700,
-            0 0 15px #00aaff,
-            0 0 20px #ff4400;
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 170, 0, 0.8),
+            0 0 30px rgba(255, 68, 0, 0.8),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
     }
 
     to {
         text-shadow:
-            0 0 8px #fff,
-            0 0 15px #00aaff,
-            0 0 25px #ff7700,
-            0 0 35px #00aaff;
+            0 0 15px rgba(255, 255, 255, 0.8),
+            0 0 30px rgba(255, 170, 0, 1),
+            0 0 40px rgba(255, 68, 0, 1),
+            3px 3px 0px rgba(255, 106, 0, 0.8),
+            -3px -3px 0px rgba(0, 199, 255, 0.8),
+            5px 5px 0px rgba(255, 45, 0, 0.6),
+            -5px -5px 0px rgba(30, 144, 255, 0.6);
+    }
+}
+
+@keyframes hyperspeedLines {
+    0% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 170, 0, 0.8),
+            0 0 30px rgba(255, 68, 0, 0.8),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
+    }
+    25% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 170, 0, 0.8),
+            0 0 30px rgba(255, 68, 0, 0.8),
+            1px 1px 0px rgba(255, 210, 0, 0.6),
+            -1px -1px 0px rgba(0, 102, 204, 0.6),
+            3px 3px 0px rgba(255, 106, 0, 0.4),
+            -3px -3px 0px rgba(0, 199, 255, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 170, 0, 0.8),
+            0 0 30px rgba(255, 68, 0, 0.8),
+            0px 0px 0px rgba(255, 45, 0, 0.6),
+            0px 0px 0px rgba(30, 144, 255, 0.6),
+            2px 2px 0px rgba(255, 210, 0, 0.4),
+            -2px -2px 0px rgba(0, 102, 204, 0.4);
+    }
+    75% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 170, 0, 0.8),
+            0 0 30px rgba(255, 68, 0, 0.8),
+            -1px -1px 0px rgba(0, 199, 255, 0.6),
+            1px 1px 0px rgba(255, 106, 0, 0.6),
+            1px 1px 0px rgba(30, 144, 255, 0.4),
+            -1px -1px 0px rgba(255, 45, 0, 0.4);
+    }
+    100% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 170, 0, 0.8),
+            0 0 30px rgba(255, 68, 0, 0.8),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
     }
 }
 
