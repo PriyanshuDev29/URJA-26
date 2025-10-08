@@ -4,12 +4,33 @@
    Base Styles
    ========================================================================== */
 
+/* General page container */
 .leaderboard-page {
-    min-height: 100vh;
-    padding: 120px 20px 60px;
+    padding-top: 80px;
+    color: #f0f0f0;
     font-family: 'Poppins', sans-serif;
+    text-align: center;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: #000000;
+    position: relative;
+    overflow: hidden;
 }
 
+.leaderboard-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 60, 0, 0.2) 0, transparent 80%),
+      radial-gradient(circle at 20% 80%, rgba(0, 207, 255, 0.2) 0, transparent 80%);
+    z-index: 0;
+}
+
+/* Animated background effect */
 .leaderboard-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -137,7 +158,77 @@
     color: #fff;
     margin-bottom: 10px;
     letter-spacing: 3px;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    text-shadow:
+        0 0 30px rgba(255, 215, 0, 0.5),
+        2px 2px 0px rgba(255, 106, 0, 0.6),
+        -2px -2px 0px rgba(0, 199, 255, 0.6),
+        4px 4px 0px rgba(255, 45, 0, 0.4),
+        -4px -4px 0px rgba(30, 144, 255, 0.4);
+    animation: leaderboardGlow 3s ease-in-out infinite alternate, hyperspeedLines 2s linear infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes leaderboardGlow {
+    from {
+        text-shadow:
+            0 0 30px rgba(255, 215, 0, 0.5),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
+    }
+    to {
+        text-shadow:
+            0 0 40px rgba(255, 215, 0, 0.8),
+            3px 3px 0px rgba(255, 106, 0, 0.8),
+            -3px -3px 0px rgba(0, 199, 255, 0.8),
+            5px 5px 0px rgba(255, 45, 0, 0.6),
+            -5px -5px 0px rgba(30, 144, 255, 0.6);
+    }
+}
+
+@keyframes hyperspeedLines {
+    0% {
+        text-shadow:
+            0 0 30px rgba(255, 215, 0, 0.5),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
+    }
+    25% {
+        text-shadow:
+            0 0 30px rgba(255, 215, 0, 0.5),
+            1px 1px 0px rgba(255, 210, 0, 0.6),
+            -1px -1px 0px rgba(0, 102, 204, 0.6),
+            3px 3px 0px rgba(255, 106, 0, 0.4),
+            -3px -3px 0px rgba(0, 199, 255, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 30px rgba(255, 215, 0, 0.5),
+            0px 0px 0px rgba(255, 45, 0, 0.6),
+            0px 0px 0px rgba(30, 144, 255, 0.6),
+            2px 2px 0px rgba(255, 210, 0, 0.4),
+            -2px -2px 0px rgba(0, 102, 204, 0.4);
+    }
+    75% {
+        text-shadow:
+            0 0 30px rgba(255, 215, 0, 0.5),
+            -1px -1px 0px rgba(0, 199, 255, 0.6),
+            1px 1px 0px rgba(255, 106, 0, 0.6),
+            1px 1px 0px rgba(30, 144, 255, 0.4),
+            -1px -1px 0px rgba(255, 45, 0, 0.4);
+    }
+    100% {
+        text-shadow:
+            0 0 30px rgba(255, 215, 0, 0.5),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
+    }
 }
 
 .subtitle {

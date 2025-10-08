@@ -4,24 +4,118 @@
 .gallery-container {
   padding: 120px 2rem 2rem 2rem; /* Add top padding to be below the fixed navbar */
   min-height: 100vh;
-  /* background-color: #0a0a0a; Dark background */
-  color: #fff;
-  font-family: "Orbitron", "Segoe UI", "Arial", sans-serif;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- NEW: Footer-style Background --- */
+.gallery-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 60, 0, 0.2) 0, transparent 80%),
+    radial-gradient(circle at 20% 80%, rgba(0, 207, 255, 0.2) 0, transparent 80%);
+  z-index: 0;
 }
 
 /* --- Gallery Title --- */
 .gallery-title {
   text-align: center;
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 900;
   letter-spacing: 0.15em;
   margin-bottom: 3rem;
-  /* Create a glowing, gradient text effect matching the navbar */
-  background: linear-gradient(90deg, #ff3c00, #00cfff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* text-shadow: 0 0 10px rgba(255, 60, 0, 0.5), 0 0 15px rgba(0, 207, 255, 0.5); */
+  color: #ffffff;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+  text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 20px rgba(255, 60, 0, 0.8),
+      0 0 30px rgba(0, 207, 255, 0.8),
+      2px 2px 0px rgba(255, 106, 0, 0.6),
+      -2px -2px 0px rgba(0, 199, 255, 0.6),
+      4px 4px 0px rgba(255, 45, 0, 0.4),
+      -4px -4px 0px rgba(30, 144, 255, 0.4);
+  animation: galleryGlow 3s ease-in-out infinite alternate, hyperspeedLines 2s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes galleryGlow {
+    from {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 60, 0, 0.8),
+            0 0 30px rgba(0, 207, 255, 0.8),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
+    }
+    to {
+        text-shadow:
+            0 0 15px rgba(255, 255, 255, 0.8),
+            0 0 30px rgba(255, 60, 0, 1),
+            0 0 40px rgba(0, 207, 255, 1),
+            3px 3px 0px rgba(255, 106, 0, 0.8),
+            -3px -3px 0px rgba(0, 199, 255, 0.8),
+            5px 5px 0px rgba(255, 45, 0, 0.6),
+            -5px -5px 0px rgba(30, 144, 255, 0.6);
+    }
+}
+
+@keyframes hyperspeedLines {
+    0% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 60, 0, 0.8),
+            0 0 30px rgba(0, 207, 255, 0.8),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
+    }
+    25% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 60, 0, 0.8),
+            0 0 30px rgba(0, 207, 255, 0.8),
+            1px 1px 0px rgba(255, 210, 0, 0.6),
+            -1px -1px 0px rgba(0, 102, 204, 0.6),
+            3px 3px 0px rgba(255, 106, 0, 0.4),
+            -3px -3px 0px rgba(0, 199, 255, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 60, 0, 0.8),
+            0 0 30px rgba(0, 207, 255, 0.8),
+            0px 0px 0px rgba(255, 45, 0, 0.6),
+            0px 0px 0px rgba(30, 144, 255, 0.6),
+            2px 2px 0px rgba(255, 210, 0, 0.4),
+            -2px -2px 0px rgba(0, 102, 204, 0.4);
+    }
+    75% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 60, 0, 0.8),
+            0 0 30px rgba(0, 207, 255, 0.8),
+            -1px -1px 0px rgba(0, 199, 255, 0.6),
+            1px 1px 0px rgba(255, 106, 0, 0.6),
+            1px 1px 0px rgba(30, 144, 255, 0.4),
+            -1px -1px 0px rgba(255, 45, 0, 0.4);
+    }
+    100% {
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(255, 60, 0, 0.8),
+            0 0 30px rgba(0, 207, 255, 0.8),
+            2px 2px 0px rgba(255, 106, 0, 0.6),
+            -2px -2px 0px rgba(0, 199, 255, 0.6),
+            4px 4px 0px rgba(255, 45, 0, 0.4),
+            -4px -4px 0px rgba(30, 144, 255, 0.4);
+    }
 }
 
 /* --- Responsive Image Grid --- */

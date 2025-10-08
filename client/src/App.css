@@ -1,4 +1,6 @@
 /* Global Responsive Rules */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,14 +10,18 @@
 html,
 body {
   width: 100%;
-  /* FIX 1: Removed overflow-x: hidden from html, body */
   margin: 0;
   padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  overflow-x: hidden;
 }
 
 #root {
   width: 100%;
-  /* FIX 2: Removed overflow-x: hidden from #root */
+  min-height: 100vh;
+  background-color: #000000;
 }
 
 /* Make sure all containers are responsive */
@@ -24,7 +30,6 @@ body {
 section,
 div {
   max-width: 100%;
-  /* FIX 3: Removed the highly problematic overflow-x: hidden from generic div */
 }
 
 /* Responsive images */
@@ -63,7 +68,6 @@ body.menu-open {
 .App {
   text-align: center;
   width: 100%;
-  /* FIX 4: Removed overflow-x: hidden from .App */
 }
 
 .App-logo {

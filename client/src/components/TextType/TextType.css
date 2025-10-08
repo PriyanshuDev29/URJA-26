@@ -1,0 +1,24 @@
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+  -webkit-text-stroke: 0.3px rgba(0,0,0,0.6);
+  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  display: inline-block;
+  opacity: 1;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 700;
+  color: #ffffff;
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.75);
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
