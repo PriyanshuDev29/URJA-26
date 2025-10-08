@@ -14,37 +14,14 @@
     overflow: hidden;
 }
 
-/* Animated background effect */
 .team-page-content::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        -45deg,
-        rgba(255, 68, 0, 0.08) 0%,
-        rgba(255, 170, 0, 0.08) 25%,
-        rgba(0, 170, 255, 0.08) 50%,
-        rgba(0, 102, 204, 0.08) 75%,
-        rgba(255, 68, 0, 0.08) 100%
-    );
-    background-size: 400% 400%;
-    animation: flowWave 10s ease-in-out infinite;
-    z-index: -1;
-}
-
-@keyframes flowWave {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 60, 0, 0.2) 0, transparent 80%),
+        radial-gradient(circle at 20% 80%, rgba(0, 207, 255, 0.2) 0, transparent 80%);
+    z-index: 0;
 }
 
 /* Main heading style */

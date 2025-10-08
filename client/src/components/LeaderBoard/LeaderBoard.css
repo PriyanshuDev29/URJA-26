@@ -20,39 +20,17 @@
     overflow: hidden;
 }
 
-/* Animated background effect */
 .leaderboard-page::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        -90deg,
-        rgba(255, 215, 0, 0.05) 0%,
-        rgba(192, 192, 192, 0.05) 25%,
-        rgba(205, 127, 50, 0.05) 50%,
-        rgba(255, 170, 0, 0.05) 75%,
-        rgba(255, 215, 0, 0.05) 100%
-    );
-    background-size: 400% 400%;
-    animation: flowWave 16s ease-in-out infinite;
-    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 60, 0, 0.2) 0, transparent 80%),
+      radial-gradient(circle at 20% 80%, rgba(0, 207, 255, 0.2) 0, transparent 80%);
+    z-index: 0;
 }
 
-@keyframes flowWave {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
+/* Animated background effect */
 .leaderboard-container {
     max-width: 1000px;
     margin: 0 auto;

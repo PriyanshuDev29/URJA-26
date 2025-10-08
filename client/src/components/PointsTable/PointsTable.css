@@ -14,39 +14,18 @@
     position: relative;
     z-index: 0;
     background: #000000;
+    /* New footer-style background */
+    overflow: hidden;
 }
 
-/* Animated background effect */
 .points-table-page::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        rgba(255, 170, 0, 0.06) 0%,
-        rgba(255, 68, 0, 0.06) 25%,
-        rgba(0, 199, 255, 0.06) 50%,
-        rgba(0, 102, 204, 0.06) 75%,
-        rgba(255, 170, 0, 0.06) 100%
-    );
-    background-size: 400% 400%;
-    animation: flowWave 14s ease-in-out infinite;
-    z-index: -1;
-}
-
-@keyframes flowWave {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 60, 0, 0.2) 0, transparent 80%),
+        radial-gradient(circle at 20% 80%, rgba(0, 207, 255, 0.2) 0, transparent 80%);
+    z-index: 0;
 }
 
 /* Main "Points Table" heading */
