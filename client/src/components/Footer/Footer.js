@@ -33,7 +33,16 @@ function Footer() {
                     <h4>Contact Us</h4>
                     <ul className="footer-contact">
                         <li><FaMapMarkerAlt className="footer-icon" /> National Institute of Technology Jamshedpur,<br /> Adityapur, Jamshedpur,<br /> Jharkhand 831014</li>
-                        <li><FaPhoneAlt className="footer-icon" /> +91 76846785348</li>
+
+                        {/* MODIFICATION: Added the person's name below the phone number */}
+                        <li>
+                            <FaPhoneAlt className="footer-icon" />
+                            <span>
+                                +91 8789206563<br />
+                                Harshit Singh Rajput (Sports Secretary)
+                            </span>
+                        </li>
+
                         <li><FaEnvelope className="footer-icon" /> urja@nitjsr.ac.in</li>
                     </ul>
                 </div>

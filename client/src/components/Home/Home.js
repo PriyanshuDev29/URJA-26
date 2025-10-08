@@ -38,7 +38,7 @@ export default function UrjaHomepage() {
 
           <h2 className="hero-subtitle">
             <TextType
-              text="The clash of extremes the glory of one"
+              text="The Clash of Extremes, The Glory of One"
               typingSpeed={80}
               initialDelay={2200}
               pauseDuration={3000}

@@ -1,5 +1,6 @@
 /* General page container */
 .team-page-content {
+    padding-bottom: 50px;
     padding-top: 80px;
     color: #f0f0f0;
     font-family: 'Poppins', sans-serif;
@@ -40,7 +41,7 @@
         4px 4px 0px rgba(255, 45, 0, 0.4),
         -4px -4px 0px rgba(30, 144, 255, 0.4);
     letter-spacing: 5px;
-    -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
     animation: teamGlow 3s ease-in-out infinite alternate, hyperspeedLines 2s linear infinite;
     position: relative;
     z-index: 1;
@@ -82,6 +83,7 @@
             4px 4px 0px rgba(255, 45, 0, 0.4),
             -4px -4px 0px rgba(30, 144, 255, 0.4);
     }
+
     25% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),
@@ -92,6 +94,7 @@
             3px 3px 0px rgba(255, 106, 0, 0.4),
             -3px -3px 0px rgba(0, 199, 255, 0.4);
     }
+
     50% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),
@@ -102,6 +105,7 @@
             2px 2px 0px rgba(255, 210, 0, 0.4),
             -2px -2px 0px rgba(0, 102, 204, 0.4);
     }
+
     75% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),
@@ -112,6 +116,7 @@
             1px 1px 0px rgba(30, 144, 255, 0.4),
             -1px -1px 0px rgba(255, 45, 0, 0.4);
     }
+
     100% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),

@@ -1,5 +1,6 @@
 /* General page container, similar to the Pool page */
 .sports-page-content {
+    padding-bottom: 50px;
     padding-top: 80px;
     color: #f0f0f0;
     font-family: 'Poppins', sans-serif;
@@ -35,7 +36,7 @@
     margin-bottom: 3rem;
     color: #ffffff;
     letter-spacing: 5px;
-    -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
     text-shadow:
         0 0 10px rgba(255, 255, 255, 0.5),
         0 0 20px rgba(255, 102, 0, 0.8),
@@ -60,6 +61,7 @@
             4px 4px 0px rgba(255, 45, 0, 0.4),
             -4px -4px 0px rgba(30, 144, 255, 0.4);
     }
+
     to {
         text-shadow:
             0 0 15px rgba(255, 255, 255, 0.8),
@@ -83,6 +85,7 @@
             4px 4px 0px rgba(255, 45, 0, 0.4),
             -4px -4px 0px rgba(30, 144, 255, 0.4);
     }
+
     25% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),
@@ -93,6 +96,7 @@
             3px 3px 0px rgba(255, 106, 0, 0.4),
             -3px -3px 0px rgba(0, 199, 255, 0.4);
     }
+
     50% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),
@@ -103,6 +107,7 @@
             2px 2px 0px rgba(255, 210, 0, 0.4),
             -2px -2px 0px rgba(0, 102, 204, 0.4);
     }
+
     75% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),
@@ -113,6 +118,7 @@
             1px 1px 0px rgba(30, 144, 255, 0.4),
             -1px -1px 0px rgba(255, 45, 0, 0.4);
     }
+
     100% {
         text-shadow:
             0 0 10px rgba(255, 255, 255, 0.5),

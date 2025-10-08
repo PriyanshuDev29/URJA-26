@@ -6,6 +6,7 @@
 
 /* General page container */
 .leaderboard-page {
+    padding-bottom: 50px;
     padding-top: 80px;
     color: #f0f0f0;
     font-family: 'Poppins', sans-serif;
@@ -26,7 +27,7 @@
     inset: 0;
     pointer-events: none;
     background: radial-gradient(circle at 80% 20%, rgba(255, 60, 0, 0.2) 0, transparent 80%),
-      radial-gradient(circle at 20% 80%, rgba(0, 207, 255, 0.2) 0, transparent 80%);
+        radial-gradient(circle at 20% 80%, rgba(0, 207, 255, 0.2) 0, transparent 80%);
     z-index: 0;
 }
 
@@ -46,7 +47,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    background: rgba(0, 0, 0, 0.7);
+    /* Darker overlay */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     z-index: 999;
@@ -59,13 +61,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    padding: 40px; /* Increased padding */
+    padding: 40px;
+    /* Increased padding */
     background: linear-gradient(90deg, rgba(255, 72, 0, 0.4), rgba(0, 170, 255, 0.4));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 15px;
     border: 1px solid rgba(255, 215, 0, 0.3);
-    max-width: 700px; /* Increased max-width */
+    max-width: 700px;
+    /* Increased max-width */
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
@@ -94,7 +98,8 @@
 /* --- REMOVED: .breakdown-section-inline is no longer needed --- */
 
 .breakdown-title {
-    font-size: 1.8rem; /* Larger title */
+    font-size: 1.8rem;
+    /* Larger title */
     font-weight: 700;
     color: #ffd700;
     margin-bottom: 25px;
@@ -153,18 +158,15 @@
 }
 
 .main-title {
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: 900;
-    color: #fff;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-    text-shadow:
-        0 0 30px rgba(255, 215, 0, 0.5),
-        2px 2px 0px rgba(255, 106, 0, 0.6),
-        -2px -2px 0px rgba(0, 199, 255, 0.6),
-        4px 4px 0px rgba(255, 45, 0, 0.4),
-        -4px -4px 0px rgba(30, 144, 255, 0.4);
-    animation: leaderboardGlow 3s ease-in-out infinite alternate, hyperspeedLines 2s linear infinite;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    letter-spacing: 5px;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(0, 170, 255, 0.8), 0 0 30px rgba(255, 170, 0, 0.8), 2px 2px 0px rgba(255, 106, 0, 0.6), -2px -2px 0px rgba(0, 199, 255, 0.6), 4px 4px 0px rgba(255, 45, 0, 0.4), -4px -4px 0px rgba(30, 144, 255, 0.4);
+    animation: poolGlow 3s ease-in-out infinite alternate, hyperspeedLines 2s linear infinite;
     position: relative;
     z-index: 1;
 }
@@ -178,6 +180,7 @@
             4px 4px 0px rgba(255, 45, 0, 0.4),
             -4px -4px 0px rgba(30, 144, 255, 0.4);
     }
+
     to {
         text-shadow:
             0 0 40px rgba(255, 215, 0, 0.8),
@@ -197,6 +200,7 @@
             4px 4px 0px rgba(255, 45, 0, 0.4),
             -4px -4px 0px rgba(30, 144, 255, 0.4);
     }
+
     25% {
         text-shadow:
             0 0 30px rgba(255, 215, 0, 0.5),
@@ -205,6 +209,7 @@
             3px 3px 0px rgba(255, 106, 0, 0.4),
             -3px -3px 0px rgba(0, 199, 255, 0.4);
     }
+
     50% {
         text-shadow:
             0 0 30px rgba(255, 215, 0, 0.5),
@@ -213,6 +218,7 @@
             2px 2px 0px rgba(255, 210, 0, 0.4),
             -2px -2px 0px rgba(0, 102, 204, 0.4);
     }
+
     75% {
         text-shadow:
             0 0 30px rgba(255, 215, 0, 0.5),
@@ -221,6 +227,7 @@
             1px 1px 0px rgba(30, 144, 255, 0.4),
             -1px -1px 0px rgba(255, 45, 0, 0.4);
     }
+
     100% {
         text-shadow:
             0 0 30px rgba(255, 215, 0, 0.5),
@@ -264,12 +271,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Adjusted gap */
+    gap: 15px;
+    /* Adjusted gap */
     transition: transform 0.3s ease;
 }
 
 .podium-team:hover {
-    transform: scale(1.02); /* Less aggressive hover */
+    transform: scale(1.02);
+    /* Less aggressive hover */
 }
 
 .podium-team-name {
@@ -298,7 +307,7 @@
 
 .podium-trophy {
     font-size: 6rem;
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
 }
 
 /* Specific Podium Place Styles */
@@ -308,6 +317,7 @@
     box-shadow: 0 -10px 40px #ffd70066;
     border: 3px solid #ffd700;
 }
+
 .first-place-text.podium-team-points,
 .first-place-text.podium-team-name {
     color: #ffd700;
@@ -320,6 +330,7 @@
     box-shadow: 0 -10px 40px #c0c0c066;
     border: 3px solid #c0c0c0;
 }
+
 .second-place-text.podium-team-points,
 .second-place-text.podium-team-name {
     color: #c0c0c0;
@@ -332,6 +343,7 @@
     box-shadow: 0 -10px 40px #cd7f3266;
     border: 3px solid #cd7f32;
 }
+
 .third-place-text.podium-team-points,
 .third-place-text.podium-team-name {
     color: #cd7f32;
@@ -408,11 +420,13 @@
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-left: 10px; /* For list items */
+    margin-left: 10px;
+    /* For list items */
 }
 
 .podium-team .details-button {
-    margin-left: 0; /* Reset margin for podium */
+    margin-left: 0;
+    /* Reset margin for podium */
 }
 
 .details-button:hover {
@@ -458,7 +472,8 @@
         padding: 80px 20px 40px;
     }
 
-    .title-section, .podium {
+    .title-section,
+    .podium {
         margin-bottom: 60px;
     }
 
@@ -470,24 +485,40 @@
         width: 170px;
     }
 
-    .first-place { height: 250px; }
-    .second-place { height: 200px; }
-    .third-place { height: 160px; }
+    .first-place {
+        height: 250px;
+    }
 
-    .podium-trophy { font-size: 4.5rem; }
+    .second-place {
+        height: 200px;
+    }
+
+    .third-place {
+        height: 160px;
+    }
+
+    .podium-trophy {
+        font-size: 4.5rem;
+    }
 
     .list-item {
         padding: 15px 20px;
-        gap: 15px; /* Adjust gap */
+        gap: 15px;
+        /* Adjust gap */
     }
-    
-    .list-name { font-size: 1.2rem; }
-    .list-points { font-size: 1.5rem; }
-    
+
+    .list-name {
+        font-size: 1.2rem;
+    }
+
+    .list-points {
+        font-size: 1.5rem;
+    }
+
     .scoring-rules {
         margin-top: 60px;
     }
-    
+
     .breakdown-grid {
         grid-template-columns: 1fr;
     }
@@ -507,7 +538,8 @@
         padding: 60px 15px 30px;
     }
 
-    .title-section, .podium {
+    .title-section,
+    .podium {
         margin-bottom: 40px;
     }
 
@@ -528,43 +560,69 @@
         width: 150px;
     }
 
-    .podium-team-name { font-size: 1.1rem; }
-    .podium-team-points { font-size: 1.8rem; }
+    .podium-team-name {
+        font-size: 1.1rem;
+    }
 
-    .first-place { height: 200px; }
-    .second-place { height: 165px; }
-    .third-place { height: 140px; }
-    
-    .podium-trophy { font-size: 3.5rem; }
+    .podium-team-points {
+        font-size: 1.8rem;
+    }
+
+    .first-place {
+        height: 200px;
+    }
+
+    .second-place {
+        height: 165px;
+    }
+
+    .third-place {
+        height: 140px;
+    }
+
+    .podium-trophy {
+        font-size: 3.5rem;
+    }
 
     .list-item {
-        flex-wrap: wrap; /* Allow wrapping */
+        flex-wrap: wrap;
+        /* Allow wrapping */
         justify-content: center;
         text-align: center;
         gap: 10px;
         padding: 15px;
     }
 
-    .list-rank, .list-name, .list-points {
+    .list-rank,
+    .list-name,
+    .list-points {
         width: 100%;
     }
+
     .list-rank {
-        order: -1; /* Show rank first */
+        order: -1;
+        /* Show rank first */
         font-size: 1.5rem;
     }
-    .list-name { font-size: 1.3rem; }
-    .list-points { font-size: 1.6rem; }
-    
+
+    .list-name {
+        font-size: 1.3rem;
+    }
+
+    .list-points {
+        font-size: 1.6rem;
+    }
+
     .details-button {
         width: 80%;
         margin: 10px auto 0;
     }
-    
+
     .breakdown-section {
         padding: 20px;
         width: 95%;
     }
-    
+
     .breakdown-title {
         font-size: 1.4rem;
     }
