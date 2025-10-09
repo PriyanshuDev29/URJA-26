@@ -15,15 +15,13 @@ function Navbar() {
         setIsOpen(false);
     };
 
-    
     useEffect(() => {
         if (isOpen) {
             document.body.classList.add('menu-open');
         } else {
             document.body.classList.remove('menu-open');
         }
-        
-        // Cleanup on unmount
+
         return () => {
             document.body.classList.remove('menu-open');
         };
@@ -31,14 +29,14 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-            {/* Logo - hidden when menu is open on mobile */}
+            {/* Logo */}
             <img 
                 src={logo} 
                 alt="URJA Logo" 
                 className={`navbar-logo ${isOpen ? 'hide-logo' : ''}`} 
             />
 
-            {/* Hamburger Menu */}
+            {/* Hamburger */}
             <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
                 <div className="line"></div>
                 <div className="line"></div>
@@ -52,7 +50,7 @@ function Navbar() {
                 <li><Link to="/sports" className="sports-link" onClick={closeMenu}>Sports</Link></li>
                 <li><Link to="/gallery" className="gallery-link" onClick={closeMenu}>Gallery</Link></li>
                 <li><Link to="/pool" className="pool-link" onClick={closeMenu}>Pool</Link></li>
-                <li><Link to="/leaderboard" className="branch-leaderboard-link" onClick={closeMenu}>Leaderboard</Link></li>
+                <li><Link to="/branch-leaderboard" className="branch-leaderboard-link" onClick={closeMenu}>Branch Leaderboard</Link></li>
                 <li><Link to="/points-table" className="points-table-link" onClick={closeMenu}>Points Table</Link></li>
             </ul>
         </nav>
