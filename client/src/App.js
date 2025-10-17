@@ -29,7 +29,7 @@ function AppContent() {
         <Route path="/pool" element={<Pool />} />
         <Route path="/points-table" element={<PointsTable />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/leaderboard" element={<LeaderBoard />} />
+        <Route path="/branch-leaderboard" element={<LeaderBoard />} />
       </Routes>
 
       {/* Conditional Rendering: Render Footer only if it's NOT the home page */}
