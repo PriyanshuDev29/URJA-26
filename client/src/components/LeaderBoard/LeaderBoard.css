@@ -751,4 +751,8 @@
     .list-points {
         font-size: 1.6rem;
     }
+
+    .scoring-rules {
+        margin-right: 5px;
+    }
 }
