@@ -48,13 +48,13 @@ const teamsData = [
 
 const LeaderBoard = () => {
   const [selectedTeam, setSelectedTeam] = useState(null);
-  
+
   const sortedTeams = [...teamsData].sort((a, b) => b.totalPoints - a.totalPoints);
   const topThree = sortedTeams.slice(0, 3);
   const rest = sortedTeams.slice(3);
-  
+
   const podiumOrder = [topThree[1], topThree[0], topThree[2]].filter(Boolean);
-  
+
   const handleTeamClick = (team) => {
     setSelectedTeam(team); // Directly set the team to open the modal
   };
@@ -66,9 +66,9 @@ const LeaderBoard = () => {
   // Close modal when pressing the Escape key
   useEffect(() => {
     const handleEsc = (event) => {
-       if (event.keyCode === 27) {
-         closeModal();
-       }
+      if (event.keyCode === 27) {
+        closeModal();
+      }
     };
     window.addEventListener('keydown', handleEsc);
 
@@ -110,8 +110,8 @@ const LeaderBoard = () => {
             <div className="breakdown-title">{selectedTeam.name}</div>
             <div className="breakdown-grid">
               {Object.entries(selectedTeam.breakdown).map(([sport, points]) => (
-                <div 
-                  key={sport} 
+                <div
+                  key={sport}
                   className={`breakdown-item ${points === 0 ? 'zero-points' : ''}`}
                 >
                   <span className="breakdown-sport">{sport}</span>
@@ -139,7 +139,7 @@ const LeaderBoard = () => {
                 <div className={`podium-team-points ${getTextColorClass(index)}`}>
                   {team.totalPoints}
                 </div>
-                 {/* --- ADDED: Details button for podium teams --- */}
+                {/* --- ADDED: Details button for podium teams --- */}
                 <button className="details-button" onClick={() => handleTeamClick(team)}>
                   Details
                 </button>

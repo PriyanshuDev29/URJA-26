@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
 
 /* ==========================================================================
-   Base Styles
-   ========================================================================== */
+    Base Styles
+    ========================================================================== */
 
 /* General page container */
 .leaderboard-page {
@@ -38,8 +38,8 @@
 }
 
 /* ==========================================================================
-   Modal & Breakdown Styles
-   ========================================================================== */
+    Modal & Breakdown Styles
+    ========================================================================== */
 
 .modal-overlay {
     position: fixed;
@@ -95,8 +95,6 @@
     transform: scale(1.1);
 }
 
-/* --- REMOVED: .breakdown-section-inline is no longer needed --- */
-
 .breakdown-title {
     font-size: 1.8rem;
     /* Larger title */
@@ -149,8 +147,8 @@
 
 
 /* ==========================================================================
-   Title Section
-   ========================================================================== */
+    Title Section
+    ========================================================================== */
 
 .title-section {
     text-align: center;
@@ -246,8 +244,8 @@
 }
 
 /* ==========================================================================
-   Podium Section
-   ========================================================================== */
+    Podium Section
+    ========================================================================== */
 
 .podium {
     display: flex;
@@ -257,6 +255,8 @@
     margin-bottom: 80px;
     padding: 0 20px;
     flex-wrap: wrap;
+    position: relative;
+    /* For absolutely positioned elements within */
 }
 
 .podium-column {
@@ -272,13 +272,22 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    /* Adjusted gap */
     transition: transform 0.3s ease;
 }
 
 .podium-team:hover {
     transform: scale(1.02);
-    /* Less aggressive hover */
+}
+
+/* NEW: Wrapper for name and points */
+.podium-team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Space between text and podium block */
+    cursor: default;
+    /* Reset cursor for desktop, as button is now the target */
 }
 
 .podium-team-name {
@@ -350,9 +359,31 @@
     text-shadow: 0 0 15px #cd7f32;
 }
 
+/* --- ADDED: Details button styling for desktop (visible here) --- */
+.podium-item .details-button {
+    background: rgba(0, 0, 0, 0.3);
+    /* Darker background */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    position: absolute;
+    /* Position the button */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    z-index: 5;
+}
+
 /* ==========================================================================
-   Other Teams List Section
-   ========================================================================== */
+    Other Teams List Section
+    ========================================================================== */
 
 .other-teams-section {
     max-width: 700px;
@@ -408,7 +439,7 @@
     opacity: 0.9;
 }
 
-/* --- ADDED: Styles for the new "Details" button --- */
+/* --- Details button used outside of podium (list items) --- */
 .details-button {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -421,13 +452,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-left: 10px;
-    /* For list items */
 }
 
-.podium-team .details-button {
-    margin-left: 0;
-    /* Reset margin for podium */
-}
 
 .details-button:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -437,8 +463,8 @@
 }
 
 /* ==========================================================================
-   Scoring Rules Section
-   ========================================================================== */
+    Scoring Rules Section
+    ========================================================================== */
 
 .scoring-rules {
     margin-top: 80px;
@@ -461,12 +487,12 @@
 }
 
 /* ==========================================================================
-   ENHANCED RESPONSIVE STYLES
-   ========================================================================== */
+    ENHANCED RESPONSIVE STYLES
+    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   ## Tablet & Large Phones (up to 768px)
-   -------------------------------------------------------------------------- */
+    ## Tablet & Large Phones (up to 768px)
+    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
     .leaderboard-page {
         padding: 80px 20px 40px;
@@ -504,7 +530,6 @@
     .list-item {
         padding: 15px 20px;
         gap: 15px;
-        /* Adjust gap */
     }
 
     .list-name {
@@ -522,18 +547,22 @@
     .breakdown-grid {
         grid-template-columns: 1fr;
     }
-
-    .details-button {
-        padding: 6px 14px;
-        font-size: 0.8rem;
-    }
 }
 
 
 /* --------------------------------------------------------------------------
-   ## Small Mobile Phones (up to 480px)
-   -------------------------------------------------------------------------- */
-@media (max-width: 480px) {
+    ## Small Mobile Phones (up to 480px)
+    -------------------------------------------------------------------------- */
+@media (max-width: 650px) {
+    .leaderboard-container {
+        margin-top: 20px;
+    }
+
+    .details-button {
+        margin-top: 17px;
+        margin-bottom: 17px;
+    }
+
     .leaderboard-page {
         padding: 60px 15px 30px;
     }
@@ -552,41 +581,145 @@
         font-size: 0.9rem;
     }
 
+    /* --- MOBILE PODIUM REDESIGN (Grid is the solution) --- */
     .podium {
-        gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "second first third";
+        gap: 0;
+        width: 100%;
+        max-width: 400px;
+        padding: 0 10px;
+        align-items: end;
+        margin-top: 40px;
+        position: relative;
+        height: 250px;
     }
 
     .podium-column {
-        width: 150px;
+        display: contents;
+        width: auto;
+    }
+
+    .podium-team {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0;
+    }
+
+    /* Specific grid area assignments for proper 2-1-3 layout */
+    .podium-column:nth-child(1) {
+        grid-area: second;
+    }
+
+    .podium-column:nth-child(2) {
+        grid-area: first;
+    }
+
+    .podium-column:nth-child(3) {
+        grid-area: third;
+    }
+
+
+    .podium-team-info {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        padding: 0 5px;
+        box-sizing: border-box;
+        line-height: 1.2;
+        z-index: 10;
+        min-height: 55px;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        cursor: default;
+        /* Reset cursor for mobile too */
     }
 
     .podium-team-name {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+        letter-spacing: 0.5px;
     }
 
     .podium-team-points {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
+    }
+
+    .podium-item {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        /* Allows vertical stacking of trophy and button */
+        justify-content: flex-start;
+        /* Aligns contents to the top */
+        align-items: center;
+        padding-top: 5px;
+        /* Padding for the trophy to move down slightly */
     }
 
     .first-place {
-        height: 200px;
+        height: 130px;
+        border-width: 2px;
+        box-shadow: 0 -5px 20px #ffd70044;
     }
 
     .second-place {
-        height: 165px;
+        height: 100px;
+        border-width: 2px;
+        box-shadow: 0 -5px 20px #c0c0c044;
     }
 
     .third-place {
-        height: 140px;
+        height: 80px;
+        border-width: 2px;
+        box-shadow: 0 -5px 20px #cd7f3244;
     }
 
+    /* MODIFIED: Shifted trophy position up */
     .podium-trophy {
-        font-size: 3.5rem;
+        font-size: 2rem;
+        position: static;
+        /* Use static positioning to flow normally inside flex container */
+        margin-bottom: 5px;
+        /* Space between trophy and button */
+    }
+
+    /* MODIFIED: Details button for podium block (small screens) */
+    .podium-item .details-button {
+        position: static;
+        /* Flow normally below the trophy */
+        transform: none;
+        /* Remove horizontal transform */
+        width: 80%;
+        padding: 4px 10px;
+        /* Smaller padding */
+        font-size: 0.7rem;
+        /* Smaller font */
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Ensure the Details button for list items is still styled correctly */
+    .list-item .details-button {
+        position: static;
+        transform: none;
+        width: 80%;
+        margin: 10px auto 0;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.1);
     }
 
     .list-item {
         flex-wrap: wrap;
-        /* Allow wrapping */
         justify-content: center;
         text-align: center;
         gap: 10px;
@@ -601,7 +734,6 @@
 
     .list-rank {
         order: -1;
-        /* Show rank first */
         font-size: 1.5rem;
     }
 
@@ -611,19 +743,5 @@
 
     .list-points {
         font-size: 1.6rem;
-    }
-
-    .details-button {
-        width: 80%;
-        margin: 10px auto 0;
-    }
-
-    .breakdown-section {
-        padding: 20px;
-        width: 95%;
-    }
-
-    .breakdown-title {
-        font-size: 1.4rem;
     }
 }
