@@ -24,7 +24,7 @@ function Footer() {
                         <li><Link to="/sports">Sports</Link></li>
                         <li><Link to="/gallery">Gallery</Link></li>
                         <li><Link to="/pool">Pool</Link></li>
-                        <li><Link to="/leaderboard">Leaderboard</Link></li>
+                        <li><Link to="/branch-leaderboard">Leaderboard</Link></li>
                         <li><Link to="/points-table">Points Table</Link></li>
                     </ul>
                 </div>
