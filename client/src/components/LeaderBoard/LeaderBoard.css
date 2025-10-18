@@ -555,6 +555,7 @@
     -------------------------------------------------------------------------- */
 @media (max-width: 650px) {
     .leaderboard-container {
+        font-size: 3.5rem;
         margin-top: 20px;
     }
 
@@ -584,6 +585,7 @@
 
     /* --- MOBILE PODIUM REDESIGN (Grid is the solution) --- */
     .podium {
+        margin-left: -8px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas: "second first third";
@@ -717,6 +719,10 @@
         padding: 8px 20px;
         font-size: 0.9rem;
         background: rgba(255, 255, 255, 0.1);
+    }
+
+    .list-item-wrapper {
+        margin-right: 15px;
     }
 
     .list-item {
